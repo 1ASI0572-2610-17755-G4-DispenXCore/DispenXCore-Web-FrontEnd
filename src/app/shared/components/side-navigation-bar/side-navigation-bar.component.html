@@ -1,0 +1,21 @@
+<mat-nav-list class="side-nav">
+
+  <img class="logo" src="/assets/logos/logo.png" alt="Logo" />
+
+  @for (option of navOptions; track option.label) {
+    <a mat-list-item
+       [routerLink]="option.route"
+       routerLinkActive="active">
+      <mat-icon matListItemIcon>{{ option.icon }}</mat-icon>
+      <span matListItemLine>{{ option.label | translate }}</span>
+    </a>
+  }
+
+  <mat-divider />
+
+  <a mat-list-item (click)="onLogout()">
+    <mat-icon matListItemIcon>logout</mat-icon>
+    <span matListItemLine>{{ 'sidebar.logout' | translate }}</span>
+  </a>
+
+</mat-nav-list>

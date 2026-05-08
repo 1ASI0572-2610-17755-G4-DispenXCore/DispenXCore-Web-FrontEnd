@@ -1,0 +1,48 @@
+{
+  "sign-in": {
+    "sign-up": "Crear Cuenta",
+    "title": "Iniciar Sesión",
+    "sub-title": "Ingresa tu información personal",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Ingresar",
+    "forgot-password": "¿Olvidaste tu contraseña?",
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "email": "Ingresa un correo válido",
+      "minlength": "Mínimo {requiredLength} caracteres"
+    },
+    "success": "Has iniciado sesión correctamente.",
+    "error": "Correo o contraseña incorrectos. Intenta nuevamente.",
+    "no-permission": "No tienes permiso para acceder a esta sección."
+  },
+  "sign-up": {
+    "login": "Iniciar Sesión",
+    "title": "Crear Cuenta",
+    "sub-title": "Ingresa tu información personal",
+    "first-name": "Nombre",
+    "last-name": "Apellido",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "terms": "Acepta los términos y condiciones",
+    "register": "Registrarse",
+    "success": "Cuenta creada exitosamente.",
+    "error": "Ocurrió un error durante el registro. Intenta nuevamente.",
+    "email-exists": "Este correo ya está registrado. Por favor usa otro.",
+    "invalid-data": "Datos inválidos. Verifica la información ingresada.",
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "invalid-email": "Ingresa un correo válido",
+      "minlength": "Mínimo {requiredLength} caracteres",
+      "accept-terms": "Debes aceptar los términos"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Inicio",
+    "schedule": "Horario",
+    "history": "Historial",
+    "settings": "Configuración",
+    "support": "Soporte",
+    "logout": "Salir"
+  }
+}

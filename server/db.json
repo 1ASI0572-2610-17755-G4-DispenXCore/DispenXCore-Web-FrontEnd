@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Admin",
+      "lastName": "System",
+      "email": "admin@gmail.com",
+      "password": "admin1234",
+      "role": "ADMIN",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "firstName": "Rad",
+      "lastName": "V",
+      "email": "radv@gmail.com",
+      "password": "123456789",
+      "role": "USER",
+      "status": "ACTIVE"
+    }
+  ]
+}

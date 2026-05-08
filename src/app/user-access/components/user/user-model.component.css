@@ -1,0 +1,39 @@
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 15px;
+}
+
+[mat-dialog-content] {
+  min-width: 350px;
+  padding: 20px;
+}
+
+.dialog-title {
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.delete-confirmation {
+  text-align: center;
+  padding: 10px;
+}
+
+.warning-text {
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 8px;
+}

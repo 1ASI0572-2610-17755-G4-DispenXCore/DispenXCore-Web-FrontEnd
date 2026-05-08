@@ -1,0 +1,15 @@
+<mat-toolbar class="header-toolbar">
+
+  @if (isMobile) {
+    <button mat-icon-button (click)="menuToggle.emit()" aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+
+  <span class="logo">DispenXCore</span>
+
+  <span class="spacer"></span>
+
+  <app-language-switcher/>
+
+</mat-toolbar>
