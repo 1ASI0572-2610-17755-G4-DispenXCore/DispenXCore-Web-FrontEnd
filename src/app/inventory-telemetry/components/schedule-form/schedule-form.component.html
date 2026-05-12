@@ -1,0 +1,79 @@
+<div class="schedule-form">
+
+  <div class="schedule-form__header">
+    <h3 class="schedule-form__title">
+      {{ (schedule ? 'schedule.form.title-edit' : 'schedule.form.title-new') | translate }}
+    </h3>
+    <p class="schedule-form__subtitle">
+      {{ 'schedule.form.subtitle' | translate }}
+    </p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="schedule-form__body">
+
+    <!-- Name -->
+    <mat-form-field appearance="outline" class="schedule-form__field">
+      <mat-label>{{ 'schedule.form.name' | translate }}</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <!-- Supply type -->
+    <mat-form-field appearance="outline" class="schedule-form__field">
+      <mat-label>{{ 'schedule.form.supply-type' | translate }}</mat-label>
+      <mat-select formControlName="supplyType">
+        @for (type of supplyTypes; track type) {
+          <mat-option [value]="type">{{ type }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Amount + Time side by side -->
+    <div class="schedule-form__row">
+      <mat-form-field appearance="outline" class="schedule-form__field">
+        <mat-label>{{ 'schedule.form.amount' | translate }}</mat-label>
+        <input matInput type="number" formControlName="amount" min="1" />
+        <span matSuffix>g</span>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="schedule-form__field">
+        <mat-label>{{ 'schedule.form.time' | translate }}</mat-label>
+        <input matInput type="time" formControlName="scheduledTime" />
+      </mat-form-field>
+    </div>
+
+    <!-- Frequency days -->
+    <div class="schedule-form__days">
+      <span class="schedule-form__days-label">{{ 'schedule.form.frequency' | translate }}</span>
+      <div class="schedule-form__days-grid">
+        @for (day of weekDays; track day.value) {
+          <button
+            type="button"
+            class="schedule-form__day-btn"
+            [class.schedule-form__day-btn--selected]="isDaySelected(day.value)"
+            (click)="toggleDay(day.value)">
+            {{ day.labelKey | translate }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Smart refill -->
+    <mat-checkbox formControlName="smartRefill" class="schedule-form__checkbox">
+      {{ 'schedule.form.smart-refill' | translate }}
+    </mat-checkbox>
+
+    <!-- Actions -->
+    <div class="schedule-form__actions">
+      <button mat-button type="button" class="schedule-form__btn-cancel" mat-dialog-close>
+        {{ 'schedule.form.cancel' | translate }}
+      </button>
+      <button mat-flat-button type="submit"
+              class="schedule-form__btn-submit"
+              [disabled]="form.invalid">
+        {{ (schedule ? 'schedule.form.update' : 'schedule.form.create') | translate }}
+      </button>
+    </div>
+
+  </form>
+
+</div>

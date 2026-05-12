@@ -1,0 +1,137 @@
+.schedule-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Header ── */
+.schedule-form__header {
+  padding: 24px 24px 0;
+  border-bottom: 1px solid var(--color-neutral-2);
+  padding-bottom: 16px;
+  margin-bottom: 4px;
+}
+
+.schedule-form__title {
+  margin: 0 0 4px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--color-primary);
+}
+
+.schedule-form__subtitle {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-neutral-dark);
+}
+
+/* ── Body ── */
+.schedule-form__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px 24px;
+}
+
+.schedule-form__field {
+  width: 100%;
+}
+
+.schedule-form__row {
+  display: flex;
+  gap: 12px;
+}
+
+.schedule-form__row .schedule-form__field {
+  flex: 1;
+}
+
+/* ── Day selector ── */
+.schedule-form__days {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.schedule-form__days-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-neutral-dark);
+}
+
+.schedule-form__days-grid {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.schedule-form__day-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-neutral-3);
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-neutral-dark);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.schedule-form__day-btn--selected {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #fff;
+}
+
+.schedule-form__day-btn:hover:not(.schedule-form__day-btn--selected) {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary-1);
+}
+
+/* ── Checkbox ── */
+.schedule-form__checkbox {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-primary);
+  margin: 4px 0;
+
+  --mdc-checkbox-selected-checkmark-color: #fff;
+  --mdc-checkbox-selected-icon-color: var(--color-secondary-1);
+  --mdc-checkbox-selected-hover-icon-color: var(--color-secondary);
+}
+
+/* ── Actions ── */
+.schedule-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.schedule-form__btn-cancel {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--color-neutral-dark);
+}
+
+.schedule-form__btn-submit {
+  background: #006b5f;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0 24px;
+  height: 44px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-form__btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

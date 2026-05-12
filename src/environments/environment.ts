@@ -4,4 +4,7 @@ export const environment = {
   signInPath: '/users',
   signUpPath: '/users',
   usersEndpointPath: '/users',
+  dispensatorsPath: '/dispensators',
+  schedulesPath: '/schedules',
+  dispenserEventsPath: '/dispenser-events',
 };

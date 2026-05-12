@@ -1,3 +1,4 @@
 {
-  "/api/*": "/$1"
+  "/api/*": "/$1",
+  "/dispensators/:id/status": "/dispensator-status?dispensatorId=:id"
 }

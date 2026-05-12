@@ -1,0 +1,128 @@
+.schedule-page {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.page-header__title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.page-header__subtitle {
+  font-size: 14px;
+  color: var(--color-neutral-dark);
+  margin: 4px 0 0;
+}
+
+.page-header__device {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.btn-new {
+  background-color: var(--color-secondary-2) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  padding: 12px 24px !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* ── Schedule card ───────────────────────────────────────── */
+.schedule-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid var(--color-neutral-2);
+}
+
+/* ── Day selector ────────────────────────────────────────── */
+.day-selector {
+  display: flex;
+  background: var(--color-neutral-1);
+  border-bottom: 1px solid var(--color-neutral-2);
+}
+
+.day-btn {
+  flex: 1;
+  padding: 12px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-neutral-dark);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.day-btn:hover {
+  background: rgba(20, 184, 166, 0.06);
+  color: var(--color-secondary-2);
+}
+
+.day-btn--active {
+  background: rgba(20, 184, 166, 0.1);
+  color: var(--color-secondary-2);
+}
+
+/* ── Routines area ───────────────────────────────────────── */
+.routines-area {
+  padding: 24px;
+}
+
+.routines-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 16px;
+}
+
+/* ── Bottom panels ───────────────────────────────────────── */
+.bottom-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.panel-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--color-neutral-2);
+}
+
+.panel-card--centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+  }
+
+  .bottom-panels {
+    grid-template-columns: 1fr;
+  }
+}

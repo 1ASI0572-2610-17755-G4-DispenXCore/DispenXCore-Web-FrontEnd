@@ -1,0 +1,18 @@
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge--app {
+  background: rgba(20, 184, 166, 0.1);
+  color: var(--color-secondary-2);
+}
+
+.badge--manual {
+  background: var(--color-neutral-2);
+  color: var(--color-neutral-dark);
+}
