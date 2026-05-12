@@ -1,0 +1,121 @@
+.schedule-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f9f9ff;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: opacity 0.2s ease;
+}
+
+.schedule-card--disabled {
+  opacity: 0.6;
+}
+
+/* ── Time bubble ── */
+.schedule-card__time-bubble {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background: var(--color-secondary); /* teal #14B8A6 */
+  border-radius: 9999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.schedule-card__time-hour {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #003d37;
+  line-height: 1.2;
+}
+
+.schedule-card__time-period {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #003d37;
+  line-height: 1;
+}
+
+/* ── Info ── */
+.schedule-card__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.schedule-card__name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.schedule-card__amount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-neutral-dark);
+}
+
+.schedule-card__amount-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--color-neutral-dark);
+  flex-shrink: 0;
+}
+
+/* ── Actions ── */
+.schedule-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Badge */
+.schedule-card__badge {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.schedule-card__badge--active {
+  background: rgba(0, 107, 95, 0.10);
+  color: #006b5f;
+}
+
+.schedule-card__badge--disabled {
+  background: rgba(100, 116, 139, 0.12);
+  color: var(--color-neutral-dark);
+}
+
+/* Toggle — override Material to use brand teal */
+.schedule-card__toggle {
+  --mdc-switch-selected-track-color: var(--color-secondary-1);
+  --mdc-switch-selected-handle-color: #fff;
+  --mdc-switch-selected-hover-track-color: var(--color-secondary);
+  --mdc-switch-selected-pressed-track-color: var(--color-secondary-2);
+}
+
+/* Edit button */
+.schedule-card__edit-btn {
+  color: var(--color-neutral-dark);
+}

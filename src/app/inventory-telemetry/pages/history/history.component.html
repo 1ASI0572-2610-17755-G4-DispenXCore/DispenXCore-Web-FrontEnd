@@ -1,0 +1,98 @@
+<div class="history-page">
+
+  <!-- ── Header ── -->
+  <div class="page-header">
+    <div class="page-header__info">
+      <h1 class="page-header__title">{{ 'history.title' | translate }}</h1>
+      <p class="page-header__subtitle">
+        {{ 'history.subtitle' | translate }}
+        <span class="page-header__device">{{ dispensator()?.name ?? '...' }}</span>
+      </p>
+    </div>
+
+    <!-- Filters -->
+    <div class="page-header__filters">
+
+      <!-- Period toggle -->
+      <div class="period-toggle">
+        @for (p of periods; track p.value) {
+          <button
+            class="period-toggle__btn"
+            [class.period-toggle__btn--active]="selectedPeriod() === p.value"
+            (click)="onPeriodChange(p.value)">
+            {{ p.labelKey | translate }}
+          </button>
+        }
+      </div>
+
+      <!-- Supply type filter -->
+      <div class="supply-filter">
+        <mat-select
+          [(ngModel)]="selectedSupplyType"
+          class="supply-filter__select">
+          <mat-option value="all">{{ 'history.filter.all' | translate }}</mat-option>
+          @for (type of supplyTypes; track type) {
+            <mat-option [value]="type">{{ 'supply-type.' + type | translate }}</mat-option>
+          }
+        </mat-select>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Stats + Chart row ── -->
+  <div class="stats-row">
+
+    <!-- Chart (left, wide) -->
+    <div class="chart-card">
+      <app-history-chart
+        [events]="events()"
+        [period]="selectedPeriod()"
+        [isLoading]="isLoading()" />
+    </div>
+
+    <!-- Stat cards (right, stacked) -->
+    <div class="stat-cards">
+
+      <div class="stat-card">
+        <span class="stat-card__label">{{ 'history.stats.weekly-avg' | translate }}</span>
+        <div class="stat-card__value-row">
+          <span class="stat-card__value">{{ weeklyAverage }}</span>
+          <span class="stat-card__unit">{{ 'history.stats.g-day' | translate }}</span>
+        </div>
+        <div class="stat-card__trend">
+          <span class="stat-card__trend-dot"></span>
+          <span class="stat-card__trend-text">{{ 'history.stats.trend' | translate }}</span>
+        </div>
+        <div class="stat-card__bg-circle" aria-hidden="true"></div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-card__label">{{ 'history.stats.total' | translate }}</span>
+        <div class="stat-card__value-row">
+          <span class="stat-card__value">{{ totalKg }}</span>
+          <span class="stat-card__unit">
+            kg ({{ selectedPeriod() }} {{ 'history.stats.days' | translate }})
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Event Log ── -->
+  <div class="log-card">
+    <div class="log-card__header">
+      <h2 class="log-card__title">{{ 'history.log.title' | translate }}</h2>
+      <button class="log-card__export" (click)="exportCsv()">
+        <mat-icon class="log-card__export-icon">download</mat-icon>
+        {{ 'history.log.export' | translate }}
+      </button>
+    </div>
+
+    <app-history-table
+      [events]="filteredEvents"
+      [isLoading]="isLoading()" />
+  </div>
+
+</div>

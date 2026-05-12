@@ -1,0 +1,144 @@
+.table-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* ── Rows ── */
+.ht-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--color-neutral-2);
+}
+
+.ht-row--header {
+  background: rgba(240, 243, 255, 0.3);
+  border-bottom: 1px solid var(--color-neutral-2);
+}
+
+.ht-row--data {
+  background: #fff;
+  transition: background 0.12s;
+}
+
+.ht-row--data:hover {
+  background: rgba(249, 249, 255, 0.8);
+}
+
+/* ── Cells ── */
+.ht-cell {
+  padding: 14px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(21, 28, 39, 1);
+}
+
+.ht-row--header .ht-cell {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(85, 95, 111, 1);
+  letter-spacing: 0.04em;
+  padding: 10px 24px;
+}
+
+.ht-cell--status {
+  text-align: right;
+}
+
+/* Date cell */
+.ht-date {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.ht-time {
+  display: block;
+  font-size: 12px;
+  color: rgba(85, 95, 111, 1);
+  margin-top: 2px;
+}
+
+.ht-muted {
+  color: var(--color-neutral-4);
+}
+
+/* ── Status badge ── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge--success {
+  background: rgba(20, 184, 166, 0.2);
+  color: rgba(0, 66, 59, 1);
+}
+
+.status-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Empty ── */
+.ht-empty {
+  padding: 40px 24px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--color-neutral-dark);
+}
+
+/* ── Pagination ── */
+.ht-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: #fff;
+}
+
+.ht-pagination__info {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(85, 95, 111, 1);
+}
+
+.ht-pagination__controls {
+  display: flex;
+  gap: 4px;
+}
+
+.ht-page-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid var(--color-neutral-2);
+  background: #fff;
+  font-size: 16px;
+  color: rgba(85, 95, 111, 1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.ht-page-btn:hover:not(:disabled) {
+  background: var(--color-neutral-1);
+  border-color: var(--color-neutral-3);
+}
+
+.ht-page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

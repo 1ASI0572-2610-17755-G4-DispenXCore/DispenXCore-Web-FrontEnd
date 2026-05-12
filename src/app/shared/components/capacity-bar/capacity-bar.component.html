@@ -1,0 +1,27 @@
+@if (status()) {
+  <div class="capacity-bar-wrapper">
+
+    <div class="cb-header">
+      <div class="cb-header__icon" aria-hidden="true"></div>
+      <span class="cb-header__title">{{ 'capacity-bar.title' | translate }}</span>
+    </div>
+
+    <p class="cb-subtitle">{{ 'capacity-bar.subtitle' | translate }}</p>
+
+    <div class="cb-amount">
+      <span class="cb-amount__value">{{ status()!.dailyTotal }}</span>
+      <span class="cb-amount__unit">{{ 'capacity-bar.unit' | translate }}</span>
+    </div>
+
+    <div class="cb-bar-track">
+      <div class="cb-bar-fill" [style.width.%]="capacityPercent"></div>
+    </div>
+
+    <p class="cb-label">
+      {{ capacityPercent }}% {{ 'capacity-bar.of-max' | translate }}
+    </p>
+
+  </div>
+} @else {
+  <p class="cb-loading">{{ 'common.loading' | translate }}</p>
+}
