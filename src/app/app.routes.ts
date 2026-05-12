@@ -7,7 +7,7 @@ import { DashboardComponent } from './shared/components/dashboard/dashboard.comp
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import {ScheduleComponent} from "./inventory-telemetry/pages/schedule/schedule.component";
 import {HistoryComponent} from "./inventory-telemetry/pages/history/history.component";
-
+import {SettingsComponent } from './shared/components/settings/settings.component';
 export const routes: Routes = [
   {
     path: '',
@@ -17,7 +17,7 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'history', component: HistoryComponent },
-      { path: 'settings', component: NotFoundComponent },
+      { path: 'settings', component: SettingsComponent},
       { path: 'support', component: NotFoundComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
