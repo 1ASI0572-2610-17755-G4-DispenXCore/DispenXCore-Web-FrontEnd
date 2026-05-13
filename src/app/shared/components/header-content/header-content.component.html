@@ -7,9 +7,40 @@
   }
 
   <span class="logo">DispenXCore</span>
-
   <span class="spacer"></span>
 
-  <app-language-switcher/>
+  <div class="search-wrapper" [class.active]="showResults()">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input
+      class="search-input"
+      type="text"
+      placeholder="Search features..."
+      [value]="searchQuery()"
+      (input)="onSearchInput($event)"
+    />
+    @if (searchQuery()) {
+      <button mat-icon-button class="clear-btn" (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+
+    @if (showResults()) {
+      <div class="search-results">
+        @for (result of searchResults(); track result.label) {
+          <div class="search-result-item" (click)="onSelectResult(result)">
+            <mat-icon class="result-icon">arrow_forward</mat-icon>
+            <span class="result-label">{{ result.label }}</span>
+            <span class="result-route">{{ result.route }}</span>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="header-actions">
+    <app-language-switcher />
+    <app-notification-dropdown />
+    <app-user-dropdown />
+  </div>
 
 </mat-toolbar>

@@ -1,10 +1,10 @@
-import { Component, Input, OnChanges, SimpleChanges, computed, signal } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { DispenserEvent } from '../../model/entities/dispenserEvent.entity';
 
 interface ChartPoint {
-  day: string; // label e.g. "Mon"
-  value: number; // grams
+  day: string;
+  value: number;
   x: number;
   y: number;
 }
@@ -21,7 +21,6 @@ export class HistoryChartComponent implements OnChanges {
   @Input() period: 7 | 30 = 7;
   @Input() isLoading = false;
 
-  // SVG viewport
   readonly W = 560;
   readonly H = 200;
   readonly PAD = { top: 16, right: 16, bottom: 32, left: 44 };
@@ -61,13 +60,10 @@ export class HistoryChartComponent implements OnChanges {
       `${first.x},${bottom} ` + pts.map((p) => `${p.x},${p.y}`).join(' ') + ` ${last.x},${bottom}`;
 
     const step = padded / 4;
-    const yTickList = Array.from({ length: 5 }, (_, i) => {
-      const val = Math.round(i * step);
-      return {
-        value: val,
-        y: this.PAD.top + (1 - val / padded) * plotH,
-      };
-    });
+    const yTickList = Array.from({ length: 5 }, (_, i) => ({
+      value: Math.round(i * step),
+      y: this.PAD.top + (1 - (i * step) / padded) * plotH,
+    }));
 
     this.points.set(pts);
     this.polyline.set(poly);
@@ -77,19 +73,53 @@ export class HistoryChartComponent implements OnChanges {
   }
 
   private buildDays(): { label: string; value: number }[] {
-    const count = this.period === 7 ? 7 : 7; // always show 7-day view on chart
+    // For 7d show last 7 days, for 30d show last 30 grouped by day
+    const count = this.period;
     const now = new Date();
     const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const MONTH_LABELS = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
 
-    return Array.from({ length: count }, (_, i) => {
-      const d = new Date(now);
-      d.setDate(d.getDate() - (count - 1 - i));
-      const label = DAY_LABELS[d.getDay()];
-      const dayStr = d.toISOString().slice(0, 10);
-      const value = this.events
-        .filter((e) => e.dispensedAt.startsWith(dayStr))
-        .reduce((acc, e) => acc + e.amountDispensed, 0);
-      return { label, value };
-    });
+    if (this.period === 7) {
+      return Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(now);
+        d.setDate(d.getDate() - (6 - i));
+        const label = DAY_LABELS[d.getDay()];
+        const dayStr = d.toISOString().slice(0, 10);
+        const value = this.events
+          .filter((e) => e.dispensedAt.startsWith(dayStr))
+          .reduce((acc, e) => acc + e.amountDispensed, 0);
+        return { label, value };
+      });
+    } else {
+      // 30 days — group into 6 blocks of 5 days each for readability
+      return Array.from({ length: 6 }, (_, i) => {
+        const blockEnd = new Date(now);
+        blockEnd.setDate(blockEnd.getDate() - i * 5);
+        const blockStart = new Date(blockEnd);
+        blockStart.setDate(blockStart.getDate() - 4);
+
+        const label = `${blockStart.getDate()} ${MONTH_LABELS[blockStart.getMonth()]}`;
+        const value = this.events
+          .filter((e) => {
+            const d = new Date(e.dispensedAt);
+            return d >= blockStart && d <= blockEnd;
+          })
+          .reduce((acc, e) => acc + e.amountDispensed, 0);
+        return { label, value };
+      }).reverse();
+    }
   }
 }

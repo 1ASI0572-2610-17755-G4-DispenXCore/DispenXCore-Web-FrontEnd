@@ -1,0 +1,113 @@
+<div class="dashboard-page">
+  <header class="dashboard-header">
+    <div class="header-info">
+      <h1 class="page-title">{{ 'dashboard.title' | translate }}</h1>
+      <p class="page-subtitle">
+        {{ 'dashboard.subtitle' | translate }}
+        <span class="device-id">DP-Hogar-RADC</span>
+      </p>
+    </div>
+    <div class="system-status">
+      <span class="status-dot"></span>
+      {{ 'dashboard.system-online' | translate }}
+    </div>
+  </header>
+
+  <div class="dashboard-grid">
+    <div class="main-stats">
+      <div class="supply-toggles">
+        <button class="supply-btn active">{{ 'dashboard.supply.beans' | translate }}</button>
+        <button class="supply-btn">{{ 'dashboard.supply.peas' | translate }}</button>
+        <button class="supply-btn">{{ 'dashboard.supply.rice' | translate }}</button>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-card weight-card">
+          <div class="card-body-content">
+            <div class="metric-header">
+              <span class="metric-label">{{ 'dashboard.metrics.weight' | translate }}</span>
+              <mat-icon class="metric-icon">show_chart</mat-icon>
+            </div>
+            <div class="metric-value">4.5 <span class="unit">kg</span></div>
+          </div>
+          <div class="metric-chart-container">
+            <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+              <path d="M0,35 L20,32 L40,38 L60,25 L80,30 L100,15"
+                    fill="none" stroke="#14B8A6" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="card-body-content">
+            <div class="metric-header">
+              <span class="metric-label">{{ 'dashboard.metrics.grain-level' | translate }}</span>
+              <mat-icon class="metric-icon">inventory_2</mat-icon>
+            </div>
+            <div class="metric-value">65 <span class="unit">%</span></div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 65%"></div>
+              <div class="progress-labels">
+                <span>{{ 'dashboard.metrics.capacity' | translate }}</span>
+                <span class="status-text">{{ 'dashboard.metrics.healthy' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="card-body-content">
+            <div class="metric-header">
+              <span class="metric-label">{{ 'dashboard.metrics.flow-rate' | translate }}</span>
+              <mat-icon class="metric-icon">speed</mat-icon>
+            </div>
+            <div class="metric-value">150 <span class="unit">g/min</span></div>
+            <div class="bar-chart">
+              <div class="bar" style="height: 40%"></div>
+              <div class="bar" style="height: 60%"></div>
+              <div class="bar" style="height: 30%"></div>
+              <div class="bar active" style="height: 85%"></div>
+              <div class="bar" style="height: 50%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inventory-status-card">
+        <div class="inventory-info">
+          <h2 class="card-title">{{ 'dashboard.inventory.title' | translate }}</h2>
+          <p class="card-desc">{{ 'dashboard.inventory.desc' | translate }}</p>
+          <div class="inventory-actions">
+            <button mat-flat-button class="btn-refill" (click)="onOrderRefill()">
+              <mat-icon>shopping_cart</mat-icon>
+              {{ 'dashboard.inventory.btn-refill' | translate }}
+            </button>
+            <button mat-stroked-button class="btn-history" (click)="onViewHistory()">
+              {{ 'dashboard.inventory.btn-history' | translate }}
+            </button>
+          </div>
+        </div>
+        <div class="inventory-gauge">
+          <div class="gauge-circle">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <div class="percentage">60</div>
+            <div class="label">{{ 'dashboard.inventory.stock-remaining' | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side-panel">
+      <div class="side-card">
+        <div class="side-header">
+          <mat-icon class="side-icon">tune</mat-icon>
+          <h2 class="side-title">{{ 'settings.title' | translate }}</h2>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
