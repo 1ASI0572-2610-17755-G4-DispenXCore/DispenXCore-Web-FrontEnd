@@ -1,0 +1,62 @@
+<div class="schedule-page">
+
+  <!-- ── Header ── -->
+  <div class="page-header">
+    <div class="page-header__info">
+      <h1 class="page-header__title">{{ 'schedule.title' | translate }}</h1>
+      <p class="page-header__subtitle">
+        {{ 'schedule.subtitle' | translate }}
+        <span class="page-header__device">{{ dispensator()?.name ?? '...' }}</span>
+      </p>
+    </div>
+    <button mat-flat-button class="btn-new" (click)="onNewSchedule()">
+      <mat-icon>add</mat-icon>
+      {{ 'schedule.button.new' | translate }}
+    </button>
+  </div>
+
+  <!-- ── Schedule card ── -->
+  <div class="schedule-card">
+
+    <!-- Day selector -->
+    <div class="day-selector">
+      @for (day of weekDays; track day.value) {
+        <button
+          class="day-btn"
+          [class.day-btn--active]="selectedDay() === day.value"
+          (click)="selectDay(day.value)">
+          {{ day.labelKey | translate }}
+        </button>
+      }
+    </div>
+
+    <!-- Routines list -->
+    <div class="routines-area">
+      <h2 class="routines-title">
+        {{ selectedDayLabelKey | translate }} {{ 'schedule.routines-suffix' | translate }}
+      </h2>
+      @if (dispensator()) {
+        <app-schedule-list
+          [dispensatorId]="dispensator()!.id"
+          [filterDay]="selectedDay()" />
+      }
+    </div>
+
+  </div>
+
+  <!-- ── Bottom panels ── -->
+  <div class="bottom-panels">
+
+    @if (dispensator()) {
+      <div class="panel-card">
+        <app-capacity-bar [dispensatorId]="dispensator()!.id" />
+      </div>
+
+      <div class="panel-card panel-card--centered">
+        <app-next-dispense-timer [dispensatorId]="dispensator()!.id" />
+      </div>
+    }
+
+  </div>
+
+</div>

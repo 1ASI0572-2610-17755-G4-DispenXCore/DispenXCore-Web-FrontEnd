@@ -5,15 +5,15 @@
     "sub-title": "Ingresa tu información personal",
     "email": "Correo electrónico",
     "password": "Contraseña",
-    "submit": "Ingresar",
-    "forgot-password": "¿Olvidaste tu contraseña?",
+    "submit": "Iniciar Sesión",
+    "forgot-password": "¿Olvidé mi contraseña?",
     "errors": {
       "required": "Este campo es obligatorio",
       "email": "Ingresa un correo válido",
       "minlength": "Mínimo {requiredLength} caracteres"
     },
-    "success": "Has iniciado sesión correctamente.",
-    "error": "Correo o contraseña incorrectos. Intenta nuevamente.",
+    "success": "Sesión iniciada correctamente.",
+    "error": "Correo o contraseña incorrectos. Intenta de nuevo.",
     "no-permission": "No tienes permiso para acceder a esta sección."
   },
   "sign-up": {
@@ -24,12 +24,12 @@
     "last-name": "Apellido",
     "email": "Correo electrónico",
     "password": "Contraseña",
-    "terms": "Acepta los términos y condiciones",
-    "register": "Registrarse",
-    "success": "Cuenta creada exitosamente.",
-    "error": "Ocurrió un error durante el registro. Intenta nuevamente.",
-    "email-exists": "Este correo ya está registrado. Por favor usa otro.",
-    "invalid-data": "Datos inválidos. Verifica la información ingresada.",
+    "terms": "Aceptar los términos y condiciones",
+    "register": "Registrarme",
+    "success": "Cuenta creada correctamente.",
+    "error": "Ocurrió un error durante el registro. Intenta de nuevo.",
+    "email-exists": "Este correo ya está registrado. Usa otro.",
+    "invalid-data": "Datos inválidos. Revisa la información ingresada.",
     "errors": {
       "required": "Este campo es obligatorio",
       "invalid-email": "Ingresa un correo válido",
@@ -39,10 +39,123 @@
   },
   "sidebar": {
     "dashboard": "Inicio",
-    "schedule": "Horario",
+    "schedule": "Horarios",
     "history": "Historial",
     "settings": "Configuración",
     "support": "Soporte",
-    "logout": "Salir"
+    "logout": "Cerrar Sesión"
+  },
+  "schedule": {
+    "title": "Gestión de Horarios",
+    "subtitle": "Configura rutinas automáticas de dispensado para",
+    "routines-suffix": "Rutinas",
+    "button": {
+      "new": "Nuevo Horario"
+    },
+    "days": {
+      "mon": "LUN",
+      "tue": "MAR",
+      "wed": "MIÉ",
+      "thu": "JUE",
+      "fri": "VIE",
+      "sat": "SÁB",
+      "sun": "DOM"
+    },
+    "notifications": {
+      "created": "Horario creado correctamente",
+      "updated": "Horario actualizado correctamente",
+      "load-error": "Error al cargar el dispensador",
+      "toggle-error": "Error al actualizar el estado del horario"
+    },
+    "card": {
+      "dispense": "Dispensar",
+      "active": "ACTIVO",
+      "disabled": "INACTIVO",
+      "edit": "Editar horario"
+    },
+    "list": {
+      "empty": "Sin horarios para este día."
+    },
+    "form": {
+      "title-new": "Nuevo Horario",
+      "title-edit": "Editar Horario",
+      "subtitle": "Configura los detalles de la rutina de dispensado.",
+      "name": "Nombre del horario",
+      "supply-type": "Tipo de suministro",
+      "amount": "Cantidad",
+      "time": "Hora",
+      "frequency": "Repetir en",
+      "smart-refill": "Activar recarga inteligente",
+      "cancel": "Cancelar",
+      "create": "Crear",
+      "update": "Guardar cambios"
+    }
+  },
+  "history": {
+    "title": "Historial de Dispensado",
+    "subtitle": "Revisa eventos pasados y tendencias de consumo para",
+    "period": {
+      "7days": "7 Días",
+      "30days": "30 Días"
+    },
+    "filter": {
+      "all": "Todos los suministros"
+    },
+    "notifications": {
+      "load-error": "Error al cargar el historial"
+    },
+    "chart": {
+      "title": "CONSUMO DIARIO (g)"
+    },
+    "stats": {
+      "weekly-avg": "PROMEDIO SEMANAL",
+      "g-day": "g/día",
+      "trend": "5% vs semana anterior",
+      "total": "TOTAL DISPENSADO",
+      "days": "Días"
+    },
+    "log": {
+      "title": "Registro de Eventos",
+      "export": "Exportar CSV"
+    },
+    "table": {
+      "date": "FECHA Y HORA",
+      "supply": "TIPO DE SUMINISTRO",
+      "amount": "CANTIDAD",
+      "trigger": "ORIGEN",
+      "status": "ESTADO",
+      "status-success": "Éxito",
+      "status-low": "Stock bajo",
+      "empty": "No se encontraron eventos en este período.",
+      "showing": "Mostrando",
+      "of": "de",
+      "events": "eventos"
+    }
+  },
+  "capacity-bar": {
+    "title": "Resumen Diario",
+    "subtitle": "Total programado para los días activos.",
+    "unit": "g / día",
+    "of-max": "de capacidad máxima"
+  },
+  "next-dispense": {
+    "label": "PRÓXIMO DISPENSADO EN",
+    "no-upcoming": "Sin dispensados próximos"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "edit": "Editar",
+    "delete": "Eliminar"
+  },
+  "supply-type": {
+    "RICE": "Arroz",
+    "LENTILS": "Lentejas",
+    "BEANS": "Frijoles",
+    "CORN": "Maíz",
+    "OTHER": "Otro"
+  },
+  "trigger": {
+    "app": "App",
+    "manual": "Manual"
   }
 }

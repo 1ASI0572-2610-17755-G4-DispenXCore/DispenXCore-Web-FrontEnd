@@ -1,0 +1,77 @@
+@if (isLoading) {
+  <div class="table-spinner">
+    <mat-spinner diameter="32" />
+  </div>
+} @else {
+
+  <!-- Table header -->
+  <div class="ht-row ht-row--header">
+    <div class="ht-cell ht-cell--date">{{ 'history.table.date' | translate }}</div>
+    <div class="ht-cell ht-cell--supply">{{ 'history.table.supply' | translate }}</div>
+    <div class="ht-cell ht-cell--amount">{{ 'history.table.amount' | translate }}</div>
+    <div class="ht-cell ht-cell--trigger">{{ 'history.table.trigger' | translate }}</div>
+    <div class="ht-cell ht-cell--status">{{ 'history.table.status' | translate }}</div>
+  </div>
+
+  <!-- Rows -->
+  @for (event of pagedEvents; track event.id) {
+    <div class="ht-row ht-row--data">
+
+      <!-- Date & time -->
+      <div class="ht-cell ht-cell--date">
+        <span class="ht-date">{{ event.dispensedAt | date:'MMM d, y' }}</span>
+        <span class="ht-time">{{ event.dispensedAt | date:'hh:mm a' }}</span>
+      </div>
+
+      <!-- Supply type -->
+      <div class="ht-cell ht-cell--supply">
+        @if (event.supplyType) {
+          <app-supply-type-badge [supplyType]="event.supplyType" />
+        } @else {
+          <span class="ht-muted">—</span>
+        }
+      </div>
+
+      <!-- Amount -->
+      <div class="ht-cell ht-cell--amount">
+        {{ event.amountDispensed }}g
+      </div>
+
+      <!-- Trigger -->
+      <div class="ht-cell ht-cell--trigger">
+        <app-trigger-badge [trigger]="event.trigger" />
+      </div>
+
+      <!-- Status -->
+      <div class="ht-cell ht-cell--status">
+        <span class="status-badge status-badge--success">
+          <span class="status-badge__dot"></span>
+          {{ 'history.table.status-success' | translate }}
+        </span>
+      </div>
+
+    </div>
+  } @empty {
+    <div class="ht-empty">
+      <p>{{ 'history.table.empty' | translate }}</p>
+    </div>
+  }
+
+  <!-- Pagination -->
+  <div class="ht-pagination">
+    <span class="ht-pagination__info">
+      {{ 'history.table.showing' | translate }}
+      {{ (currentPage - 1) * PAGE_SIZE + 1 }}–{{ endItem }}      {{ 'history.table.of' | translate }} {{ events.length }}
+      {{ 'history.table.events' | translate }}
+    </span>
+    <div class="ht-pagination__controls">
+      <button class="ht-page-btn" (click)="prevPage()" [disabled]="currentPage === 1">
+        ‹
+      </button>
+      <button class="ht-page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+        ›
+      </button>
+    </div>
+  </div>
+
+}

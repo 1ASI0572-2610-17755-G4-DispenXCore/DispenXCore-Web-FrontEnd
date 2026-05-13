@@ -1,0 +1,73 @@
+<div class="chart-wrapper">
+  <p class="chart-title">{{ 'history.chart.title' | translate }}</p>
+
+  @if (isLoading) {
+    <div class="chart-loading">
+      <span class="chart-loading__text">{{ 'common.loading' | translate }}</span>
+    </div>
+  } @else {
+    <svg
+      class="chart-svg"
+      [attr.viewBox]="'0 0 ' + W + ' ' + H"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+        <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#14B8A6" stop-opacity="0.18" />
+          <stop offset="100%" stop-color="#14B8A6" stop-opacity="0.01" />
+        </linearGradient>
+      </defs>
+
+      <!-- Y grid lines + labels -->
+      @for (tick of yTicks(); track tick.value) {
+        <line
+          [attr.x1]="PAD.left"
+          [attr.x2]="W - PAD.right"
+          [attr.y1]="tick.y"
+          [attr.y2]="tick.y"
+          stroke="#E2E8F0"
+          stroke-width="1" />
+        <text
+          [attr.x]="PAD.left - 6"
+          [attr.y]="tick.y + 4"
+          text-anchor="end"
+          class="chart-axis-label">
+          {{ tick.value }}
+        </text>
+      }
+
+      <!-- Area fill -->
+      <polygon
+        [attr.points]="area()"
+        fill="url(#areaGradient)" />
+
+      <!-- Line -->
+      <polyline
+        [attr.points]="polyline()"
+        fill="none"
+        stroke="#14B8A6"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+        stroke-linecap="round" />
+
+      <!-- Data points + X labels -->
+      @for (pt of points(); track pt.day) {
+        <circle
+          [attr.cx]="pt.x"
+          [attr.cy]="pt.y"
+          r="4"
+          fill="#fff"
+          stroke="#14B8A6"
+          stroke-width="2.5" />
+        <text
+          [attr.x]="pt.x"
+          [attr.y]="H - PAD.bottom + 18"
+          text-anchor="middle"
+          class="chart-axis-label">
+          {{ pt.day }}
+        </text>
+      }
+    </svg>
+  }
+</div>

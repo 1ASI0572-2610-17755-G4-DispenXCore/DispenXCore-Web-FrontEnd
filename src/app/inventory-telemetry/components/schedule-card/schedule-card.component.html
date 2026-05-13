@@ -1,0 +1,47 @@
+<div class="schedule-card" [class.schedule-card--disabled]="!schedule.isActive">
+
+  <!-- Time bubble -->
+  <div class="schedule-card__time-bubble">
+    <span class="schedule-card__time-hour">{{ schedule.scheduledTime | slice:0:5 }}</span>
+    <span class="schedule-card__time-period">
+      {{ +schedule.scheduledTime.slice(0,2) < 12 ? 'AM' : 'PM' }}
+    </span>
+  </div>
+
+  <!-- Info -->
+  <div class="schedule-card__info">
+    <span class="schedule-card__name">{{ schedule.name }}</span>
+    <div class="schedule-card__amount">
+      <span class="schedule-card__amount-dot"></span>
+      <span>{{ 'schedule.card.dispense' | translate }} {{ schedule.amount }}g</span>
+    </div>
+  </div>
+
+  <!-- Right actions -->
+  <div class="schedule-card__actions">
+
+    <!-- Status badge -->
+    <span class="schedule-card__badge"
+          [class.schedule-card__badge--active]="schedule.isActive"
+          [class.schedule-card__badge--disabled]="!schedule.isActive">
+      {{ (schedule.isActive ? 'schedule.card.active' : 'schedule.card.disabled') | translate }}
+    </span>
+
+    <!-- Toggle -->
+    <mat-slide-toggle
+      class="schedule-card__toggle"
+      [checked]="schedule.isActive"
+      [color]="'primary'"
+      (change)="onToggle($event.checked)">
+    </mat-slide-toggle>
+
+    <!-- Edit -->
+    <button mat-icon-button class="schedule-card__edit-btn"
+            [matTooltip]="'schedule.card.edit' | translate"
+            (click)="onEdit()">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+@if (isLoading()) {
+  <div class="schedule-list__spinner">
+    <mat-spinner diameter="32" />
+  </div>
+} @else {
+  <div class="schedule-list">
+    @for (schedule of schedules(); track schedule.id) {
+      <app-schedule-card
+        [schedule]="schedule"
+        (toggled)="onScheduleToggled()"
+        (edit)="onEdit($event)" />
+    } @empty {
+      <div class="schedule-list__empty">
+        <mat-icon>event_busy</mat-icon>
+        <p>{{ 'schedule.list.empty' | translate }}</p>
+      </div>
+    }
+  </div>
+}

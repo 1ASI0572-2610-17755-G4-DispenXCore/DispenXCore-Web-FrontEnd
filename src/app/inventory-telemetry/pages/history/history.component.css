@@ -1,0 +1,243 @@
+.history-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 30px;
+}
+
+/* ── Header ── */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-header__title {
+  margin: 0 0 4px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: rgba(21, 28, 39, 1);
+}
+
+.page-header__subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(85, 95, 111, 1);
+  font-family: 'Inter', sans-serif;
+}
+
+.page-header__device {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Filters */
+.page-header__filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Period toggle */
+.period-toggle {
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  gap: 2px;
+}
+
+.period-toggle__btn {
+  padding: 4px 14px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(85, 95, 111, 1);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.period-toggle__btn--active {
+  background: rgba(231, 238, 254, 1);
+  color: rgba(21, 28, 39, 1);
+  font-weight: 600;
+}
+
+/* Supply type filter */
+.supply-filter {
+  background: #fff;
+  border-radius: 8px;
+  padding: 0 12px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.supply-filter__select {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(21, 28, 39, 1);
+  min-width: 120px;
+  border: none;
+  background: transparent;
+
+  /* strip Material underline */
+  --mdc-filled-text-field-container-color: transparent;
+  --mat-select-trigger-text-size: 14px;
+}
+
+/* ── Stats + Chart ── */
+.stats-row {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.chart-card {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Stat cards stack */
+.stat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card__label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(85, 95, 111, 1);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.stat-card__value-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.stat-card__value {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: rgba(21, 28, 39, 1);
+  line-height: 1;
+}
+
+.stat-card__unit {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(85, 95, 111, 1);
+  padding-bottom: 8px;
+}
+
+.stat-card__trend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.stat-card__trend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #006b5f;
+  flex-shrink: 0;
+}
+
+.stat-card__trend-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #006b5f;
+}
+
+.stat-card__bg-circle {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  background: rgba(0, 107, 95, 0.05);
+  top: 15px;
+  right: -16px;
+  pointer-events: none;
+}
+
+/* ── Event log card ── */
+.log-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.log-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: rgba(249, 249, 255, 0.5);
+  border-bottom: 1px solid var(--color-neutral-2);
+}
+
+.log-card__title {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: rgba(21, 28, 39, 1);
+}
+
+.log-card__export {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(85, 95, 111, 1);
+  transition: color 0.15s;
+}
+
+.log-card__export:hover {
+  color: var(--color-primary);
+}
+
+.log-card__export-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}

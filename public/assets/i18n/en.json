@@ -44,5 +44,118 @@
     "settings": "Settings",
     "support": "Support",
     "logout": "Sign Out"
+  },
+  "schedule": {
+    "title": "Schedule Management",
+    "subtitle": "Configure automated dispensing routines for",
+    "routines-suffix": "Routines",
+    "button": {
+      "new": "New Schedule"
+    },
+    "days": {
+      "mon": "MON",
+      "tue": "TUE",
+      "wed": "WED",
+      "thu": "THU",
+      "fri": "FRI",
+      "sat": "SAT",
+      "sun": "SUN"
+    },
+    "notifications": {
+      "created": "Schedule created successfully",
+      "updated": "Schedule updated successfully",
+      "load-error": "Failed to load dispensator",
+      "toggle-error": "Failed to update schedule status"
+    },
+    "card": {
+      "dispense": "Dispense",
+      "active": "ACTIVE",
+      "disabled": "DISABLED",
+      "edit": "Edit schedule"
+    },
+    "list": {
+      "empty": "No schedules for this day."
+    },
+    "form": {
+      "title-new": "New Schedule",
+      "title-edit": "Edit Schedule",
+      "subtitle": "Configure the dispensing routine details.",
+      "name": "Schedule name",
+      "supply-type": "Supply type",
+      "amount": "Amount",
+      "time": "Time",
+      "frequency": "Repeat on",
+      "smart-refill": "Enable smart refill",
+      "cancel": "Cancel",
+      "create": "Create",
+      "update": "Save changes"
+    }
+  },
+  "history": {
+    "title": "Dispensing History",
+    "subtitle": "Review past events and consumption trends for",
+    "period": {
+      "7days": "7 Days",
+      "30days": "30 Days"
+    },
+    "filter": {
+      "all": "All Supplies"
+    },
+    "notifications": {
+      "load-error": "Failed to load history"
+    },
+    "chart": {
+      "title": "DAILY CONSUMPTION (g)"
+    },
+    "stats": {
+      "weekly-avg": "WEEKLY AVERAGE",
+      "g-day": "g/day",
+      "trend": "5% vs last week",
+      "total": "TOTAL DISPENSED",
+      "days": "Days"
+    },
+    "log": {
+      "title": "Event Log",
+      "export": "Export CSV"
+    },
+    "table": {
+      "date": "DATE & TIME",
+      "supply": "SUPPLY TYPE",
+      "amount": "AMOUNT",
+      "trigger": "TRIGGER",
+      "status": "STATUS",
+      "status-success": "Success",
+      "status-low": "Low Stock",
+      "empty": "No events found for this period.",
+      "showing": "Showing",
+      "of": "of",
+      "events": "events"
+    }
+  },
+  "capacity-bar": {
+    "title": "Daily Summary",
+    "subtitle": "Total scheduled output for active days.",
+    "unit": "g / day",
+    "of-max": "of max capacity"
+  },
+  "next-dispense": {
+    "label": "NEXT DISPENSE IN",
+    "no-upcoming": "No upcoming dispenses"
+  },
+  "common": {
+    "loading": "Loading...",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "supply-type": {
+    "RICE": "Rice",
+    "LENTILS": "Lentils",
+    "BEANS": "Beans",
+    "CORN": "Corn",
+    "OTHER": "Other"
+  },
+  "trigger": {
+    "app": "App",
+    "manual": "Manual"
   }
 }
