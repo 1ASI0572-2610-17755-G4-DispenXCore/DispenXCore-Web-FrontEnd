@@ -58,7 +58,7 @@
       "id": 1,
       "dispensatorId": 1,
       "name": "Desayuno",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amount": 150,
       "scheduledTime": "07:30",
       "frequencyDays": [
@@ -75,7 +75,7 @@
       "id": 2,
       "dispensatorId": 1,
       "name": "Almuerzo",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amount": 200,
       "scheduledTime": "12:00",
       "frequencyDays": [
@@ -94,7 +94,7 @@
       "id": 3,
       "dispensatorId": 1,
       "name": "Cena",
-      "supplyType": "Other",
+      "supplyType": "OTHER",
       "amount": 100,
       "scheduledTime": "19:00",
       "frequencyDays": [
@@ -103,13 +103,13 @@
         5
       ],
       "smartRefill": true,
-      "isActive": true
+      "isActive": false
     },
     {
       "id": 4,
       "dispensatorId": 2,
       "name": "Mañana",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amount": 120,
       "scheduledTime": "08:00",
       "frequencyDays": [
@@ -117,6 +117,22 @@
         7
       ],
       "smartRefill": false,
+      "isActive": true
+    },
+    {
+      "dispensatorId": 1,
+      "name": "Cena",
+      "supplyType": "BEANS",
+      "amount": 20,
+      "scheduledTime": "23:00",
+      "frequencyDays": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "smartRefill": true,
+      "id": 5,
       "isActive": true
     }
   ],
@@ -126,7 +142,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 150,
       "dispensedAt": "2026-04-20T07:30:00.000Z"
     },
@@ -135,7 +151,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 150,
       "dispensedAt": "2026-05-05T07:30:00.000Z"
     },
@@ -144,7 +160,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "manual",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 200,
       "dispensedAt": "2026-05-05T18:00:00.000Z"
     },
@@ -153,7 +169,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 80,
       "dispensedAt": "2026-05-06T07:30:00.000Z"
     },
@@ -162,7 +178,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "manual",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 180,
       "dispensedAt": "2026-05-06T18:00:00.000Z"
     },
@@ -171,7 +187,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 150,
       "dispensedAt": "2026-05-07T07:30:00.000Z"
     },
@@ -180,7 +196,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "manual",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 220,
       "dispensedAt": "2026-05-07T18:00:00.000Z"
     },
@@ -189,7 +205,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 100,
       "dispensedAt": "2026-05-08T07:30:00.000Z"
     },
@@ -198,7 +214,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "manual",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 175,
       "dispensedAt": "2026-05-08T18:00:00.000Z"
     },
@@ -207,7 +223,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 160,
       "dispensedAt": "2026-05-09T07:30:00.000Z"
     },
@@ -216,7 +232,7 @@
       "dispensatorId": 1,
       "scheduleId": 2,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 200,
       "dispensedAt": "2026-05-09T12:00:00.000Z"
     },
@@ -225,7 +241,7 @@
       "dispensatorId": 1,
       "scheduleId": null,
       "trigger": "manual",
-      "supplyType": "Other",
+      "supplyType": "OTHER",
       "amountDispensed": 100,
       "dispensedAt": "2026-05-10T07:30:00.000Z"
     },
@@ -234,7 +250,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 90,
       "dispensedAt": "2026-05-10T09:15:00.000Z"
     },
@@ -243,7 +259,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "manual",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 140,
       "dispensedAt": "2026-05-10T18:00:00.000Z"
     },
@@ -252,7 +268,7 @@
       "dispensatorId": 1,
       "scheduleId": 1,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 150,
       "dispensedAt": "2026-05-11T07:30:00.000Z"
     },
@@ -261,7 +277,7 @@
       "dispensatorId": 1,
       "scheduleId": 2,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 200,
       "dispensedAt": "2026-05-11T12:00:00.000Z"
     },
@@ -270,7 +286,7 @@
       "dispensatorId": 1,
       "scheduleId": null,
       "trigger": "manual",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 200,
       "dispensedAt": "2026-05-11T18:00:00.000Z"
     },
@@ -279,7 +295,7 @@
       "dispensatorId": 1,
       "scheduleId": 2,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 175,
       "dispensedAt": "2026-05-12T07:30:00.000Z"
     },
@@ -288,7 +304,7 @@
       "dispensatorId": 1,
       "scheduleId": null,
       "trigger": "manual",
-      "supplyType": "Other",
+      "supplyType": "OTHER",
       "amountDispensed": 120,
       "dispensedAt": "2026-05-12T13:00:00.000Z"
     },
@@ -297,7 +313,7 @@
       "dispensatorId": 2,
       "scheduleId": 4,
       "trigger": "app",
-      "supplyType": "Rice",
+      "supplyType": "RICE",
       "amountDispensed": 120,
       "dispensedAt": "2026-05-10T08:00:00.000Z"
     }
