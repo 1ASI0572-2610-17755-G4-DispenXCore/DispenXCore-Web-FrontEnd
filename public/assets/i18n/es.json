@@ -43,7 +43,8 @@
     "history": "Historial",
     "settings": "Configuración",
     "support": "Soporte",
-    "logout": "Cerrar Sesión"
+    "logout": "Cerrar Sesión",
+    "edit-profile": "Editar Perfil"
   },
   "schedule": {
     "title": "Gestión de Horarios",
@@ -157,5 +158,99 @@
   "trigger": {
     "app": "App",
     "manual": "Manual"
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Gestiona la configuración de tu dispositivo, notificaciones y preferencias de cuenta.",
+    "device": {
+      "card-title": "Configuración del Dispositivo",
+      "device-id-label": "ID DEL DISPOSITIVO",
+      "device-id-hint": "Identificador único de tu DispenXCore Pro.",
+      "wifi-label": "RED WIFI",
+      "firmware-label": "VERSIÓN DE FIRMWARE",
+      "btn-scan": "Escanear",
+      "btn-check": "Buscar actualizaciones"
+    },
+    "notifications": {
+      "card-title": "Preferencias de Notificaciones",
+      "threshold-label": "UMBRAL DE ALERTA DE STOCK BAJO",
+      "push-title": "Notificaciones Push",
+      "push-desc": "Recibe alertas directamente en tu dispositivo móvil.",
+      "sms-title": "Alertas SMS",
+      "sms-desc": "Alertas críticas enviadas por mensaje de texto.",
+      "email-title": "Resumen por Correo",
+      "email-desc": "Reportes semanales sobre historial de alimentación y stock."
+    },
+    "actions": {
+      "edit": "Editar",
+      "cancel": "Cancelar",
+      "save": "Guardar Cambios"
+    }
+  },
+  "support": {
+    "title": "Centro de Ayuda",
+    "subtitle": "Encuentra respuestas o contacta a nuestro equipo de soporte.",
+    "live-support": "Soporte en Vivo Online",
+    "search": {
+      "heading": "¿Cómo podemos ayudarte hoy?",
+      "placeholder": "Busca soluciones, guías o preguntas frecuentes...",
+      "btn": "Buscar"
+    },
+    "faq": {
+      "section-title": "Preguntas Frecuentes",
+      "view-all": "Ver todas las preguntas →",
+      "back": "Volver al Centro de Ayuda",
+      "all-title": "Todas las Preguntas Frecuentes",
+      "q1": "¿Cómo reinicio mi PetFeeder Pro?",
+      "a1": "Localiza el botón de reinicio en la parte inferior y mantenlo presionado por 10 segundos.",
+      "q2": "¿El dispositivo muestra 'Sin conexión' pero el WiFi funciona?",
+      "a2": "Asegúrate de que el dispositivo esté conectado a la red 2.4GHz e intenta volver a emparejarlo.",
+      "q3": "¿Qué tan preciso es el sensor de nivel de grano?",
+      "a3": "El sensor tiene un margen de precisión de +/- 5 gramos.",
+      "q4": "¿Puedo programar múltiples horarios de alimentación?",
+      "a4": "Sí, puedes programar hasta 12 horarios por día desde la pestaña de Horarios.",
+      "q5": "¿El tazón es apto para lavavajillas?",
+      "a5": "Sí, el tazón de acero inoxidable es apto para lavavajillas en el estante superior.",
+      "q6": "¿Qué ocurre durante un corte de luz?",
+      "a6": "El dispositivo usa las baterías de respaldo para mantener el horario.",
+      "q7": "¿Cómo comparto el acceso con la familia?",
+      "a7": "Ve a Configuración > Compartir dispositivo e ingresa su correo electrónico."
+    },
+    "contact": {
+      "section-title": "Contáctanos",
+      "chat-title": "Chat en Vivo",
+      "chat-desc": "Obtén ayuda instantánea de nuestro equipo.",
+      "chat-meta": "TIEMPO DE ESPERA: < 2 MIN",
+      "email-title": "Soporte por Correo",
+      "email-desc": "Envíanos un mensaje detallado en cualquier momento.",
+      "email-meta": "RESPUESTA EN 24H",
+      "phone-title": "Soporte Telefónico",
+      "phone-desc": "Habla directamente con un experto.",
+      "phone-meta": "LUN-VIE, 9AM-5PM EST"
+    }
+  },
+  "dashboard": {
+    "title": "Vista General del Dispositivo",
+    "subtitle": "Monitoreando estado para el ID de Dispositivo:",
+    "system-online": "Sistema Online",
+    "supply": {
+      "beans": "Frijoles",
+      "peas": "Arvejas",
+      "rice": "Arroz"
+    },
+    "metrics": {
+      "weight": "PESO",
+      "grain-level": "NIVEL DE GRANO",
+      "flow-rate": "TASA DE FLUJO",
+      "capacity": "Capacidad",
+      "healthy": "Saludable"
+    },
+    "inventory": {
+      "title": "Estado del Inventario",
+      "desc": "Los niveles de reserva actuales indican que se requerirá reabastecimiento en 5-7 días según la tasa de flujo actual.",
+      "btn-refill": "Pedir Recarga",
+      "btn-history": "Ver Historial",
+      "stock-remaining": "Stock Restante"
+    }
   }
 }

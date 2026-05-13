@@ -68,7 +68,7 @@ export class Authentication {
           role: user.role,
         };
 
-        this._handleSignInSuccess(response);
+        this._handleSignInSuccess(response, user);
       },
       error: (error) => {
         console.error('Sign-in error:', error);
@@ -123,11 +123,16 @@ export class Authentication {
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
 
-  private _handleSignInSuccess(response: AuthenticationResponse): void {
+  // Cambia la firma para recibir el user completo del mock
+  private _handleSignInSuccess(response: AuthenticationResponse, user?: any): void {
     localStorage.setItem('token', response.token);
     localStorage.setItem(
       'userData',
       JSON.stringify({
+        id: user?.id ?? null,
+        firstName: user?.firstName ?? response.username,
+        lastName: user?.lastName ?? '',
+        email: user?.email ?? '',
         username: response.username,
         role: response.role,
       }),
@@ -140,8 +145,6 @@ export class Authentication {
 
     switch (response.role) {
       case 'ADMIN':
-        this.router.navigate(['/dashboard']).then();
-        break;
       case 'USER':
         this.router.navigate(['/dashboard']).then();
         break;
