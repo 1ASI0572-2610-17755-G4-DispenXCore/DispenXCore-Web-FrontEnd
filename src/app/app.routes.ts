@@ -3,11 +3,12 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { SignInComponent } from './public/pages/signin.component/signin.component';
 import { SignUpComponent } from './public/pages/signup.component/signup.component';
 import { authenticationGuard } from './user-access/services/authentication.guard';
-import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { DashboardComponent } from './shared/pages/dashboard/dashboard.component';
 import {ScheduleComponent} from "./inventory-telemetry/pages/schedule/schedule.component";
 import {HistoryComponent} from "./inventory-telemetry/pages/history/history.component";
-import {SettingsComponent } from './shared/components/settings/settings.component';
+import {SettingsComponent} from "./shared/pages/settings/settings.component";
+import {SupportComponent} from "./shared/pages/support/support.component";
+import {NotFoundComponent} from "./shared/pages/not-found/not-found.component";
 export const routes: Routes = [
   {
     path: '',
@@ -17,12 +18,13 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'history', component: HistoryComponent },
-      { path: 'settings', component: SettingsComponent},
-      { path: 'support', component: NotFoundComponent },
+      { path: 'settings', component: SettingsComponent },
+      { path: 'support', component: SupportComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'sign-in' },
 ];

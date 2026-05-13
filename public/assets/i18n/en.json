@@ -43,7 +43,8 @@
     "history": "History",
     "settings": "Settings",
     "support": "Support",
-    "logout": "Sign Out"
+    "logout": "Sign Out",
+    "edit-profile": "Edit Profile"
   },
   "schedule": {
     "title": "Schedule Management",
@@ -157,5 +158,99 @@
   "trigger": {
     "app": "App",
     "manual": "Manual"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your device configuration, notifications, and account preferences.",
+    "device": {
+      "card-title": "Device Configuration",
+      "device-id-label": "DEVICE ID",
+      "device-id-hint": "Unique Identifier for your DispenXCore Pro.",
+      "wifi-label": "WIFI NETWORK",
+      "firmware-label": "FIRMWARE VERSION",
+      "btn-scan": "Scan",
+      "btn-check": "Check for Updates"
+    },
+    "notifications": {
+      "card-title": "Notification Preferences",
+      "threshold-label": "LOW STOCK ALERT THRESHOLD",
+      "push-title": "App Push Notifications",
+      "push-desc": "Receive alerts directly on your mobile device.",
+      "sms-title": "SMS Alerts",
+      "sms-desc": "Critical alerts sent via text message.",
+      "email-title": "Email Summary",
+      "email-desc": "Weekly reports on feeding history and stock."
+    },
+    "actions": {
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "save": "Save Changes"
+    }
+  },
+  "support": {
+    "title": "Help Center",
+    "subtitle": "Find answers or reach out to our support team.",
+    "live-support": "Live Support Online",
+    "search": {
+      "heading": "How can we help you today?",
+      "placeholder": "Search for troubleshooting, guides, or FAQs...",
+      "btn": "Search"
+    },
+    "faq": {
+      "section-title": "Frequently Asked Questions",
+      "view-all": "View all FAQs →",
+      "back": "Back to Help Center",
+      "all-title": "All Frequently Asked Questions",
+      "q1": "How do I reset my PetFeeder Pro?",
+      "a1": "Locate the reset button at the bottom and hold it for 10 seconds.",
+      "q2": "Device shows 'Offline' but Wi-Fi is working?",
+      "a2": "Ensure your device is plugged into 2.4GHz network and try re-pairing.",
+      "q3": "How accurate is the grain level sensor?",
+      "a3": "The sensor has a precision margin of +/- 5 grams.",
+      "q4": "Can I schedule multiple feeding times?",
+      "a4": "Yes, up to 12 feeding times per day via the Schedule tab.",
+      "q5": "Is the bowl dishwasher safe?",
+      "a5": "Yes, the stainless steel bowl is top-rack dishwasher safe.",
+      "q6": "What happens during a power outage?",
+      "a6": "The device uses the backup batteries to maintain the schedule.",
+      "q7": "How do I share access with family?",
+      "a7": "Go to Settings > Share Device and enter their email."
+    },
+    "contact": {
+      "section-title": "Contact Us",
+      "chat-title": "Live Chat",
+      "chat-desc": "Get instant help from our support team.",
+      "chat-meta": "WAIT TIME: < 2 MINS",
+      "email-title": "Email Support",
+      "email-desc": "Send us a detailed message anytime.",
+      "email-meta": "RESPONSE IN 24H",
+      "phone-title": "Phone Support",
+      "phone-desc": "Speak directly with an expert.",
+      "phone-meta": "MON-FRI, 9AM-5PM EST"
+    }
+  },
+  "dashboard": {
+    "title": "Device Overview",
+    "subtitle": "Monitoring status for Device ID:",
+    "system-online": "System Online",
+    "supply": {
+      "beans": "Beans",
+      "peas": "Peas",
+      "rice": "Rice"
+    },
+    "metrics": {
+      "weight": "WEIGHT",
+      "grain-level": "GRAIN LEVEL",
+      "flow-rate": "FLOW RATE",
+      "capacity": "Capacity",
+      "healthy": "Healthy"
+    },
+    "inventory": {
+      "title": "Stock Inventory Status",
+      "desc": "Current reserve levels indicate a replenishment will be required within 5-7 days based on current flow rate.",
+      "btn-refill": "Order Refill",
+      "btn-history": "View History",
+      "stock-remaining": "Stock Remaining"
+    }
   }
 }

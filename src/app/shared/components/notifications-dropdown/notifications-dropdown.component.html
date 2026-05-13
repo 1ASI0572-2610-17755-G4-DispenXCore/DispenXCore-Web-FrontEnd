@@ -1,0 +1,42 @@
+<div class="notif-wrapper">
+  <button mat-icon-button class="header-icon-btn" (click)="toggle()" aria-label="Notifications">
+    <mat-icon>notifications</mat-icon>
+    <span class="badge">1</span>
+  </button>
+
+  @if (isOpen()) {
+    <div class="dropdown-panel notif-panel">
+      <div class="panel-header">
+        <span class="panel-title">Notifications</span>
+        <span class="mark-all">Mark all as read</span>
+      </div>
+
+      <div class="notif-list">
+        @for (n of notifications; track n.title) {
+          <div class="notif-item" [class.unread]="n.unread" [class.type-alert]="n.type === 'alert'" [class.type-success]="n.type === 'success'" [class.type-info]="n.type === 'info'">
+            <div class="notif-accent"></div>
+            <div class="notif-icon-col">
+              <mat-icon class="notif-icon">
+                {{ n.type === 'alert' ? 'warning' : n.type === 'success' ? 'check_circle' : 'system_update' }}
+              </mat-icon>
+            </div>
+            <div class="notif-body">
+              <div class="notif-row">
+                <span class="notif-title">{{ n.title }}</span>
+                <span class="notif-time">{{ n.time }}</span>
+              </div>
+              <p class="notif-msg">{{ n.message }}</p>
+              @if (n.action) {
+                <button class="notif-action-btn">{{ n.action }}</button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="panel-footer" (click)="onViewHistory()">
+        <span>View full history</span>
+      </div>
+    </div>
+  }
+</div>

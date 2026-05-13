@@ -1,39 +1,43 @@
 <div class="settings-page">
   <header class="settings-header">
-    <h1 class="page-title">Settings</h1>
-    <p class="page-subtitle">Manage your device configuration, notifications, and account preferences.</p>
+    <h1 class="page-title">{{ 'settings.title' | translate }}</h1>
+    <p class="page-subtitle">{{ 'settings.subtitle' | translate }}</p>
   </header>
 
   <div class="settings-content">
     <section class="settings-card">
       <div class="card-header">
         <mat-icon class="header-icon">router</mat-icon>
-        <h2 class="card-title">Device Configuration</h2>
+        <h2 class="card-title">{{ 'settings.device.card-title' | translate }}</h2>
       </div>
 
       <div class="card-body">
         <div class="form-grid">
           <mat-form-field appearance="outline">
-            <mat-label>DEVICE ID</mat-label>
+            <mat-label>{{ 'settings.device.device-id-label' | translate }}</mat-label>
             <input matInput value="DP-HOGAR-RADC" readonly>
-            <mat-hint>Unique Identifier for your DispenXCore Pro.</mat-hint>
+            <mat-hint>{{ 'settings.device.device-id-hint' | translate }}</mat-hint>
           </mat-form-field>
 
           <div class="wifi-field">
             <mat-form-field appearance="outline">
-              <mat-label>WIFI NETWORK</mat-label>
+              <mat-label>{{ 'settings.device.wifi-label' | translate }}</mat-label>
               <input matInput value="Home_Network_5G" [disabled]="isReadOnly()">
             </mat-form-field>
-            <button mat-flat-button class="btn-scan" [disabled]="isReadOnly()">Scan</button>
+            <button mat-flat-button class="btn-scan" [disabled]="isReadOnly()">
+              {{ 'settings.device.btn-scan' | translate }}
+            </button>
           </div>
         </div>
 
         <div class="firmware-row">
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>FIRMWARE VERSION</mat-label>
+            <mat-label>{{ 'settings.device.firmware-label' | translate }}</mat-label>
             <input matInput value="v2.4.1 (Up to date)" readonly>
           </mat-form-field>
-          <button mat-button color="primary" class="btn-check" [disabled]="isReadOnly()">Check for Updates</button>
+          <button mat-button color="primary" class="btn-check" [disabled]="isReadOnly()">
+            {{ 'settings.device.btn-check' | translate }}
+          </button>
         </div>
       </div>
     </section>
@@ -41,13 +45,13 @@
     <section class="settings-card">
       <div class="card-header">
         <mat-icon class="header-icon">notifications_none</mat-icon>
-        <h2 class="card-title">Notification Preferences</h2>
+        <h2 class="card-title">{{ 'settings.notifications.card-title' | translate }}</h2>
       </div>
 
       <div class="card-body">
         <div class="threshold-section">
           <div class="threshold-header">
-            <span class="threshold-label">LOW STOCK ALERT THRESHOLD</span>
+            <span class="threshold-label">{{ 'settings.notifications.threshold-label' | translate }}</span>
             <span class="threshold-value">15%</span>
           </div>
           <mat-slider min="5" max="50" step="1" discrete class="custom-slider" [disabled]="isReadOnly()">
@@ -62,24 +66,24 @@
         <div class="notification-list">
           <div class="notification-item">
             <div class="notif-info">
-              <span class="notif-title">App Push Notifications</span>
-              <p class="notif-desc">Receive alerts directly on your mobile device.</p>
+              <span class="notif-title">{{ 'settings.notifications.push-title' | translate }}</span>
+              <p class="notif-desc">{{ 'settings.notifications.push-desc' | translate }}</p>
             </div>
             <mat-slide-toggle color="primary" [checked]="true" [disabled]="isReadOnly()"></mat-slide-toggle>
           </div>
 
           <div class="notification-item">
             <div class="notif-info">
-              <span class="notif-title">SMS Alerts</span>
-              <p class="notif-desc">Critical alerts sent via text message.</p>
+              <span class="notif-title">{{ 'settings.notifications.sms-title' | translate }}</span>
+              <p class="notif-desc">{{ 'settings.notifications.sms-desc' | translate }}</p>
             </div>
             <mat-slide-toggle color="primary" [checked]="false" [disabled]="isReadOnly()"></mat-slide-toggle>
           </div>
 
           <div class="notification-item">
             <div class="notif-info">
-              <span class="notif-title">Email Summary</span>
-              <p class="notif-desc">Weekly reports on feeding history and stock.</p>
+              <span class="notif-title">{{ 'settings.notifications.email-title' | translate }}</span>
+              <p class="notif-desc">{{ 'settings.notifications.email-desc' | translate }}</p>
             </div>
             <mat-slide-toggle color="primary" [checked]="true" [disabled]="isReadOnly()"></mat-slide-toggle>
           </div>
@@ -89,10 +93,16 @@
 
     <footer class="settings-actions">
       @if (isReadOnly()) {
-        <button mat-flat-button class="btn-edit" (click)="onEdit()">Edit</button>
+        <button mat-flat-button class="btn-edit" (click)="onEdit()">
+          {{ 'settings.actions.edit' | translate }}
+        </button>
       } @else {
-        <button mat-button class="btn-cancel">Cancel</button>
-        <button mat-flat-button class="btn-save" (click)="onSave()">Save Changes</button>
+        <button mat-button class="btn-cancel">
+          {{ 'settings.actions.cancel' | translate }}
+        </button>
+        <button mat-flat-button class="btn-save" (click)="onSave()">
+          {{ 'settings.actions.save' | translate }}
+        </button>
       }
     </footer>
   </div>

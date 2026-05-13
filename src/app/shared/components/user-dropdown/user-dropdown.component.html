@@ -1,0 +1,37 @@
+<div class="user-wrapper">
+  <button mat-icon-button class="header-icon-btn" (click)="toggle()" aria-label="User menu">
+    <div class="avatar">{{ avatarInitial() }}</div>
+  </button>
+
+  @if (isOpen()) {
+    <div class="dropdown-panel user-panel">
+
+      <div class="user-info-header">
+        <div class="avatar-lg">{{ avatarInitial() }}</div>
+        <div class="user-meta">
+          <span class="user-name">{{ fullName() }}</span>
+          <span class="user-email">{{ currentUser()?.email }}</span>
+          <div class="device-row">
+            <span class="device-label">ID:</span>
+            <span class="device-id">DP-HOGAR-RADC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <button class="menu-item" (click)="onEditProfile()">
+        <mat-icon class="item-icon">edit</mat-icon>
+        <span>{{ 'sidebar.edit-profile' | translate }}</span>
+      </button>
+
+      <div class="divider"></div>
+
+      <button class="menu-item logout-item" (click)="onLogout()">
+        <mat-icon class="item-icon logout-icon">logout</mat-icon>
+        <span>{{ 'sidebar.logout' | translate }}</span>
+      </button>
+
+    </div>
+  }
+</div>

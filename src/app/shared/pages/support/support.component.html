@@ -1,74 +1,76 @@
 <div class="support-container">
   <div class="support-header">
     <div class="support-header__info">
-      <h1 class="support-header__title">Help Center</h1>
-      <p class="support-header__subtitle">Find answers or reach out to our support team.</p>
+      <h1 class="support-header__title">{{ 'support.title' | translate }}</h1>
+      <p class="support-header__subtitle">{{ 'support.subtitle' | translate }}</p>
     </div>
     <div class="support-status">
       <span class="status-dot"></span>
-      Live Support Online
+      {{ 'support.live-support' | translate }}
     </div>
   </div>
 
   @if (!showAllFaqs()) {
     <div class="main-support-view">
       <div class="search-section">
-        <h2 class="search-section__title">How can we help you today?</h2>
+        <h2 class="search-section__title">{{ 'support.search.heading' | translate }}</h2>
         <div class="search-box">
           <mat-icon class="search-icon">search</mat-icon>
-          <input type="text" placeholder="Search for troubleshooting, guides, or FAQs...">
-          <button class="btn-search">Search</button>
+          <input type="text" [placeholder]="'support.search.placeholder' | translate">
+          <button class="btn-search">{{ 'support.search.btn' | translate }}</button>
         </div>
       </div>
 
       <div class="support-content">
         <div class="faq-section">
-          <h3 class="section-title">Frequently Asked Questions</h3>
-          
+          <h3 class="section-title">{{ 'support.faq.section-title' | translate }}</h3>
+
           <mat-accordion multi="false">
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-                <mat-panel-title>How do I reset my PetFeeder Pro?</mat-panel-title>
+                <mat-panel-title>{{ 'support.faq.q1' | translate }}</mat-panel-title>
               </mat-expansion-panel-header>
-              <p>To reset your device, locate the reset button at the bottom and hold it for 10 seconds.</p>
+              <p>{{ 'support.faq.a1' | translate }}</p>
             </mat-expansion-panel>
 
             <mat-expansion-panel [expanded]="true" class="active-panel">
               <mat-expansion-panel-header>
-                <mat-panel-title>Device shows 'Offline' but Wi-Fi is working?</mat-panel-title>
+                <mat-panel-title>{{ 'support.faq.q2' | translate }}</mat-panel-title>
               </mat-expansion-panel-header>
-              <p>First, ensure your device is plugged into a reliable power source. If it is, try holding the pairing button on the back for 5 seconds until the LED blinks blue, then re-add the device in your app. If the issue persists, please check your router's 2.4GHz network settings.</p>
+              <p>{{ 'support.faq.a2' | translate }}</p>
             </mat-expansion-panel>
 
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-                <mat-panel-title>How accurate is the grain level sensor?</mat-panel-title>
+                <mat-panel-title>{{ 'support.faq.q3' | translate }}</mat-panel-title>
               </mat-expansion-panel-header>
-              <p>The sensor has a precision margin of +/- 5 grams.</p>
+              <p>{{ 'support.faq.a3' | translate }}</p>
             </mat-expansion-panel>
 
             <mat-expansion-panel>
               <mat-expansion-panel-header>
-                <mat-panel-title>Can I schedule multiple feeding times?</mat-panel-title>
+                <mat-panel-title>{{ 'support.faq.q4' | translate }}</mat-panel-title>
               </mat-expansion-panel-header>
-              <p>Yes, you can schedule up to 12 feeding times per day via the Schedule tab.</p>
+              <p>{{ 'support.faq.a4' | translate }}</p>
             </mat-expansion-panel>
           </mat-accordion>
 
-          <a href="javascript:void(0)" class="view-all" (click)="toggleFaqs()">View all FAQs &rarr;</a>
+          <a href="javascript:void(0)" class="view-all" (click)="toggleFaqs()">
+            {{ 'support.faq.view-all' | translate }}
+          </a>
         </div>
 
         <div class="contact-section">
-          <h3 class="section-title">Contact Us</h3>
+          <h3 class="section-title">{{ 'support.contact.section-title' | translate }}</h3>
 
           <div class="contact-card">
             <div class="contact-card__icon chat">
               <mat-icon>chat_bubble_outline</mat-icon>
             </div>
             <div class="contact-card__info">
-              <h4>Live Chat</h4>
-              <p>Get instant help from our support team.</p>
-              <span class="meta-text">WAIT TIME: < 2 MINS</span>
+              <h4>{{ 'support.contact.chat-title' | translate }}</h4>
+              <p>{{ 'support.contact.chat-desc' | translate }}</p>
+              <span class="meta-text">{{ 'support.contact.chat-meta' | translate }}</span>
             </div>
           </div>
 
@@ -77,9 +79,9 @@
               <mat-icon>mail_outline</mat-icon>
             </div>
             <div class="contact-card__info">
-              <h4>Email Support</h4>
-              <p>Send us a detailed message anytime.</p>
-              <span class="meta-text">RESPONSE IN 24H</span>
+              <h4>{{ 'support.contact.email-title' | translate }}</h4>
+              <p>{{ 'support.contact.email-desc' | translate }}</p>
+              <span class="meta-text">{{ 'support.contact.email-meta' | translate }}</span>
             </div>
           </div>
 
@@ -88,9 +90,9 @@
               <mat-icon>phone_in_talk</mat-icon>
             </div>
             <div class="contact-card__info">
-              <h4>Phone Support</h4>
-              <p>Speak directly with an expert.</p>
-              <span class="meta-text">MON-FRI, 9AM-5PM EST</span>
+              <h4>{{ 'support.contact.phone-title' | translate }}</h4>
+              <p>{{ 'support.contact.phone-desc' | translate }}</p>
+              <span class="meta-text">{{ 'support.contact.phone-meta' | translate }}</span>
             </div>
           </div>
         </div>
@@ -99,12 +101,12 @@
   } @else {
     <div class="full-faq-view">
       <button mat-button class="btn-back" (click)="toggleFaqs()">
-        <mat-icon>arrow_back</mat-icon> Back to Help Center
+        <mat-icon>arrow_back</mat-icon> {{ 'support.faq.back' | translate }}
       </button>
 
       <div class="faq-list-container">
-        <h2 class="full-faq-title">All Frequently Asked Questions</h2>
-        
+        <h2 class="full-faq-title">{{ 'support.faq.all-title' | translate }}</h2>
+
         <mat-accordion multi="true">
           @for (faq of fullFaqs; track faq.q) {
             <mat-expansion-panel class="faq-item">
