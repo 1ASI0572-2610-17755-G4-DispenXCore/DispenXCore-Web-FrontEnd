@@ -1,46 +1,305 @@
 {
   "users": [
-    { "id": 1, "firstName": "Admin", "lastName": "System", "email": "admin@gmail.com", "password": "admin1234", "role": "ADMIN", "status": "ACTIVE" },
-    { "id": 2, "firstName": "Rad",   "lastName": "V",      "email": "radv@gmail.com",  "password": "123456789", "role": "USER",  "status": "ACTIVE" }
+    {
+      "id": 1,
+      "firstName": "Admin",
+      "lastName": "System",
+      "email": "admin@gmail.com",
+      "password": "admin1234",
+      "role": "ADMIN",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "firstName": "Rad",
+      "lastName": "V",
+      "email": "radv@gmail.com",
+      "password": "123456789",
+      "role": "USER",
+      "status": "ACTIVE"
+    }
   ],
-
   "dispensators": [
-    { "id": 1, "name": "Dispensador Principal",  "status": "active",   "maxCapacity": 5000 },
-    { "id": 2, "name": "Dispensador Secundario", "status": "inactive", "maxCapacity": 3000 }
+    {
+      "id": 1,
+      "name": "Dispensador Principal",
+      "status": "active",
+      "maxCapacity": 5000
+    },
+    {
+      "id": 2,
+      "name": "Dispensador Secundario",
+      "status": "inactive",
+      "maxCapacity": 3000
+    }
   ],
-
   "dispensator-status": [
-    { "id": 1, "dispensatorId": 1, "isActive": true,  "currentCapacity": 3200, "maxCapacity": 5000, "dailyTotal": 350, "nextDispenseAt": "2026-05-12T23:00:00.000Z" },
-    { "id": 2, "dispensatorId": 2, "isActive": false, "currentCapacity": 800,  "maxCapacity": 3000, "dailyTotal": 120, "nextDispenseAt": null }
+    {
+      "id": 1,
+      "dispensatorId": 1,
+      "isActive": true,
+      "currentCapacity": 3200,
+      "maxCapacity": 5000,
+      "dailyTotal": 350,
+      "nextDispenseAt": "2026-05-12T23:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "dispensatorId": 2,
+      "isActive": false,
+      "currentCapacity": 800,
+      "maxCapacity": 3000,
+      "dailyTotal": 120,
+      "nextDispenseAt": null
+    }
   ],
-
   "schedules": [
-    { "id": 1, "dispensatorId": 1, "name": "Desayuno", "supplyType": "Rice",  "amount": 150, "scheduledTime": "07:30", "frequencyDays": [1,2,3,4,5],     "smartRefill": true,  "isActive": true  },
-    { "id": 2, "dispensatorId": 1, "name": "Almuerzo", "supplyType": "Rice",  "amount": 200, "scheduledTime": "12:00", "frequencyDays": [1,2,3,4,5,6,7], "smartRefill": false, "isActive": true  },
-    { "id": 3, "dispensatorId": 1, "name": "Cena",     "supplyType": "Other", "amount": 100, "scheduledTime": "19:00", "frequencyDays": [1,3,5],         "smartRefill": true,  "isActive": false },
-    { "id": 4, "dispensatorId": 2, "name": "Mañana",   "supplyType": "Rice",  "amount": 120, "scheduledTime": "08:00", "frequencyDays": [6,7],           "smartRefill": false, "isActive": true  }
+    {
+      "id": 1,
+      "dispensatorId": 1,
+      "name": "Desayuno",
+      "supplyType": "Rice",
+      "amount": 150,
+      "scheduledTime": "07:30",
+      "frequencyDays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "smartRefill": true,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "dispensatorId": 1,
+      "name": "Almuerzo",
+      "supplyType": "Rice",
+      "amount": 200,
+      "scheduledTime": "12:00",
+      "frequencyDays": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "smartRefill": false,
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "dispensatorId": 1,
+      "name": "Cena",
+      "supplyType": "Other",
+      "amount": 100,
+      "scheduledTime": "19:00",
+      "frequencyDays": [
+        1,
+        3,
+        5
+      ],
+      "smartRefill": true,
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "dispensatorId": 2,
+      "name": "Mañana",
+      "supplyType": "Rice",
+      "amount": 120,
+      "scheduledTime": "08:00",
+      "frequencyDays": [
+        6,
+        7
+      ],
+      "smartRefill": false,
+      "isActive": true
+    }
   ],
-
   "dispenser-events": [
-    { "id": 1,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 150, "dispensedAt": "2026-04-20T07:30:00.000Z" },
-    { "id": 2,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 150, "dispensedAt": "2026-05-05T07:30:00.000Z" },
-    { "id": 3,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "manual", "supplyType": "Rice",  "amountDispensed": 200, "dispensedAt": "2026-05-05T18:00:00.000Z" },
-    { "id": 4,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 80,  "dispensedAt": "2026-05-06T07:30:00.000Z" },
-    { "id": 5,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "manual", "supplyType": "Rice",  "amountDispensed": 180, "dispensedAt": "2026-05-06T18:00:00.000Z" },
-    { "id": 6,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 150, "dispensedAt": "2026-05-07T07:30:00.000Z" },
-    { "id": 7,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "manual", "supplyType": "Rice",  "amountDispensed": 220, "dispensedAt": "2026-05-07T18:00:00.000Z" },
-    { "id": 8,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 100, "dispensedAt": "2026-05-08T07:30:00.000Z" },
-    { "id": 9,  "dispensatorId": 1, "scheduleId": 1,    "trigger": "manual", "supplyType": "Rice",  "amountDispensed": 175, "dispensedAt": "2026-05-08T18:00:00.000Z" },
-    { "id": 10, "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 160, "dispensedAt": "2026-05-09T07:30:00.000Z" },
-    { "id": 11, "dispensatorId": 1, "scheduleId": 2,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 200, "dispensedAt": "2026-05-09T12:00:00.000Z" },
-    { "id": 12, "dispensatorId": 1, "scheduleId": null, "trigger": "manual", "supplyType": "Other", "amountDispensed": 100, "dispensedAt": "2026-05-10T07:30:00.000Z" },
-    { "id": 13, "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 90,  "dispensedAt": "2026-05-10T09:15:00.000Z" },
-    { "id": 14, "dispensatorId": 1, "scheduleId": 1,    "trigger": "manual", "supplyType": "Rice",  "amountDispensed": 140, "dispensedAt": "2026-05-10T18:00:00.000Z" },
-    { "id": 15, "dispensatorId": 1, "scheduleId": 1,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 150, "dispensedAt": "2026-05-11T07:30:00.000Z" },
-    { "id": 16, "dispensatorId": 1, "scheduleId": 2,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 200, "dispensedAt": "2026-05-11T12:00:00.000Z" },
-    { "id": 17, "dispensatorId": 1, "scheduleId": null, "trigger": "manual", "supplyType": "Rice",  "amountDispensed": 200, "dispensedAt": "2026-05-11T18:00:00.000Z" },
-    { "id": 18, "dispensatorId": 1, "scheduleId": 2,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 175, "dispensedAt": "2026-05-12T07:30:00.000Z" },
-    { "id": 19, "dispensatorId": 1, "scheduleId": null, "trigger": "manual", "supplyType": "Other", "amountDispensed": 120, "dispensedAt": "2026-05-12T13:00:00.000Z" },
-    { "id": 20, "dispensatorId": 2, "scheduleId": 4,    "trigger": "app",    "supplyType": "Rice",  "amountDispensed": 120, "dispensedAt": "2026-05-10T08:00:00.000Z" }
+    {
+      "id": 1,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 150,
+      "dispensedAt": "2026-04-20T07:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 150,
+      "dispensedAt": "2026-05-05T07:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "manual",
+      "supplyType": "Rice",
+      "amountDispensed": 200,
+      "dispensedAt": "2026-05-05T18:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 80,
+      "dispensedAt": "2026-05-06T07:30:00.000Z"
+    },
+    {
+      "id": 5,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "manual",
+      "supplyType": "Rice",
+      "amountDispensed": 180,
+      "dispensedAt": "2026-05-06T18:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 150,
+      "dispensedAt": "2026-05-07T07:30:00.000Z"
+    },
+    {
+      "id": 7,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "manual",
+      "supplyType": "Rice",
+      "amountDispensed": 220,
+      "dispensedAt": "2026-05-07T18:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 100,
+      "dispensedAt": "2026-05-08T07:30:00.000Z"
+    },
+    {
+      "id": 9,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "manual",
+      "supplyType": "Rice",
+      "amountDispensed": 175,
+      "dispensedAt": "2026-05-08T18:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 160,
+      "dispensedAt": "2026-05-09T07:30:00.000Z"
+    },
+    {
+      "id": 11,
+      "dispensatorId": 1,
+      "scheduleId": 2,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 200,
+      "dispensedAt": "2026-05-09T12:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "dispensatorId": 1,
+      "scheduleId": null,
+      "trigger": "manual",
+      "supplyType": "Other",
+      "amountDispensed": 100,
+      "dispensedAt": "2026-05-10T07:30:00.000Z"
+    },
+    {
+      "id": 13,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 90,
+      "dispensedAt": "2026-05-10T09:15:00.000Z"
+    },
+    {
+      "id": 14,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "manual",
+      "supplyType": "Rice",
+      "amountDispensed": 140,
+      "dispensedAt": "2026-05-10T18:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "dispensatorId": 1,
+      "scheduleId": 1,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 150,
+      "dispensedAt": "2026-05-11T07:30:00.000Z"
+    },
+    {
+      "id": 16,
+      "dispensatorId": 1,
+      "scheduleId": 2,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 200,
+      "dispensedAt": "2026-05-11T12:00:00.000Z"
+    },
+    {
+      "id": 17,
+      "dispensatorId": 1,
+      "scheduleId": null,
+      "trigger": "manual",
+      "supplyType": "Rice",
+      "amountDispensed": 200,
+      "dispensedAt": "2026-05-11T18:00:00.000Z"
+    },
+    {
+      "id": 18,
+      "dispensatorId": 1,
+      "scheduleId": 2,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 175,
+      "dispensedAt": "2026-05-12T07:30:00.000Z"
+    },
+    {
+      "id": 19,
+      "dispensatorId": 1,
+      "scheduleId": null,
+      "trigger": "manual",
+      "supplyType": "Other",
+      "amountDispensed": 120,
+      "dispensedAt": "2026-05-12T13:00:00.000Z"
+    },
+    {
+      "id": 20,
+      "dispensatorId": 2,
+      "scheduleId": 4,
+      "trigger": "app",
+      "supplyType": "Rice",
+      "amountDispensed": 120,
+      "dispensedAt": "2026-05-10T08:00:00.000Z"
+    }
   ]
 }
