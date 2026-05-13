@@ -91,6 +91,47 @@
       "update": "Save changes"
     }
   },
+  "history": {
+    "title": "Dispensing History",
+    "subtitle": "Review past events and consumption trends for",
+    "period": {
+      "7days": "7 Days",
+      "30days": "30 Days"
+    },
+    "filter": {
+      "all": "All Supplies"
+    },
+    "notifications": {
+      "load-error": "Failed to load history"
+    },
+    "chart": {
+      "title": "DAILY CONSUMPTION (g)"
+    },
+    "stats": {
+      "weekly-avg": "WEEKLY AVERAGE",
+      "g-day": "g/day",
+      "trend": "5% vs last week",
+      "total": "TOTAL DISPENSED",
+      "days": "Days"
+    },
+    "log": {
+      "title": "Event Log",
+      "export": "Export CSV"
+    },
+    "table": {
+      "date": "DATE & TIME",
+      "supply": "SUPPLY TYPE",
+      "amount": "AMOUNT",
+      "trigger": "TRIGGER",
+      "status": "STATUS",
+      "status-success": "Success",
+      "status-low": "Low Stock",
+      "empty": "No events found for this period.",
+      "showing": "Showing",
+      "of": "of",
+      "events": "events"
+    }
+  },
   "capacity-bar": {
     "title": "Daily Summary",
     "subtitle": "Total scheduled output for active days.",
@@ -116,56 +157,5 @@
   "trigger": {
     "app": "App",
     "manual": "Manual"
-  },
-
-  "history": {
-    "title": "History",
-    "subtitle": "View dispensing history for",
-    "chart": {
-      "title": "Supply consumption"
-    },
-
-    "table": {
-      "date": "Date",
-      "supply": "Supply",
-      "amount": "Amount",
-      "trigger": "Trigger",
-      "status": "Status",
-      "status-success": "Completed",
-      "empty": "No events found",
-      "showing": "Showing",
-      "of": "of",
-      "events": "events"
-    },
-
-    "filter": {
-      "all": "All"
-    },
-
-    "stats": {
-      "weekly-avg": "Weekly average",
-      "g-day": "g/day",
-      "trend": "Positive trend",
-      "total": "Total dispensed",
-      "days": "days"
-    },
-
-    "log": {
-      "title": "Event log",
-      "export": "Export CSV"
-    },
-    "supply-type": {
-      "Rice": "Rice",
-      "LENTILS": "Lentils",
-      "BEANS": "Beans",
-      "CORN": "Corn",
-      "OTHER": "Other"
-    },
-    "period": {
-        "7days": "7 days",
-        "30days": "30 days"
-    }
-
   }
-
 }

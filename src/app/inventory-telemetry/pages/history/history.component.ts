@@ -34,8 +34,11 @@ export class HistoryComponent implements OnInit {
   events = signal<DispenserEvent[]>([]);
   isLoading = signal(false);
 
+  // Signal for period (used in template with selectedPeriod())
   selectedPeriod = signal<HistoryPeriod>(7);
-  selectedSupplyType = signal<SupplyType | 'all'>('all');
+
+  // Plain property for supply filter (only used locally, no need for signal)
+  selectedSupplyType: SupplyType | 'all' = 'all';
 
   readonly periods: { value: HistoryPeriod; labelKey: string }[] = [
     { value: 7, labelKey: 'history.period.7days' },
@@ -78,8 +81,9 @@ export class HistoryComponent implements OnInit {
   }
 
   get filteredEvents(): DispenserEvent[] {
-    const type = this.selectedSupplyType();
-    return type === 'all' ? this.events() : this.events().filter((e) => e.supplyType === type);
+    return this.selectedSupplyType === 'all'
+      ? this.events()
+      : this.events().filter((e) => e.supplyType === this.selectedSupplyType);
   }
 
   get weeklyAverage(): number {
