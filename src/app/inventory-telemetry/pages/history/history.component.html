@@ -25,7 +25,7 @@
         }
       </div>
 
-      <!-- Supply type filter -->
+      <!-- Supply type filter — plain property, ngModel works fine -->
       <div class="supply-filter">
         <mat-select
           [(ngModel)]="selectedSupplyType"
@@ -43,7 +43,6 @@
   <!-- ── Stats + Chart row ── -->
   <div class="stats-row">
 
-    <!-- Chart (left, wide) -->
     <div class="chart-card">
       <app-history-chart
         [events]="events()"
@@ -51,7 +50,6 @@
         [isLoading]="isLoading()" />
     </div>
 
-    <!-- Stat cards (right, stacked) -->
     <div class="stat-cards">
 
       <div class="stat-card">
