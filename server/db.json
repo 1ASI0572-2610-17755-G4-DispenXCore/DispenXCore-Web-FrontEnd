@@ -50,7 +50,7 @@
       "currentCapacity": 800,
       "maxCapacity": 3000,
       "dailyTotal": 120,
-      "nextDispenseAt": null
+      "nextDispenseAt": ""
     }
   ],
   "schedules": [
@@ -103,7 +103,7 @@
         5
       ],
       "smartRefill": true,
-      "isActive": false
+      "isActive": true
     },
     {
       "id": 4,
@@ -120,6 +120,7 @@
       "isActive": true
     },
     {
+      "id": 5,
       "dispensatorId": 1,
       "name": "Cena",
       "supplyType": "BEANS",
@@ -132,8 +133,75 @@
         4
       ],
       "smartRefill": true,
-      "id": 5,
       "isActive": true
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "ALERT",
+      "title": "System Alert",
+      "time": "2 minutes ago",
+      "message": "Low stock detected in Bin 2. Capacity at 15%.",
+      "action": "Reorder Stock",
+      "unread": false,
+      "createdAt": "2026-05-27T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "SUCCESS",
+      "title": "Dispensed Completed",
+      "time": "08:00 AM",
+      "message": "Schedule executed successfully. 500g of Brown Rice have been dispensed.",
+      "action": "",
+      "unread": false,
+      "createdAt": "2026-05-27T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "type": "INFO",
+      "title": "Firmware Update",
+      "time": "Yesterday",
+      "message": "Version v2.4.1 has been successfully installed on all operational nodes.",
+      "action": "",
+      "unread": false,
+      "createdAt": "2026-05-26T10:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "type": "ALERT",
+      "title": "Bin 1 Critical",
+      "time": "1 hour ago",
+      "message": "Bin 1 is below 10% capacity. Immediate refill required.",
+      "action": "Reorder Stock",
+      "unread": false,
+      "createdAt": "2026-05-27T07:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "type": "SUCCESS",
+      "title": "Schedule Updated",
+      "time": "3 hours ago",
+      "message": "Morning schedule has been updated successfully.",
+      "action": "",
+      "unread": true,
+      "createdAt": "2026-05-27T05:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "type": "INFO",
+      "title": "Device Connected",
+      "time": "5 hours ago",
+      "message": "DispenXCore Pro has reconnected to the network.",
+      "action": "",
+      "unread": true,
+      "createdAt": "2026-05-27T03:00:00.000Z"
     }
   ],
   "dispenser-events": [
@@ -237,15 +305,6 @@
       "dispensedAt": "2026-05-09T12:00:00.000Z"
     },
     {
-      "id": 12,
-      "dispensatorId": 1,
-      "scheduleId": null,
-      "trigger": "manual",
-      "supplyType": "OTHER",
-      "amountDispensed": 100,
-      "dispensedAt": "2026-05-10T07:30:00.000Z"
-    },
-    {
       "id": 13,
       "dispensatorId": 1,
       "scheduleId": 1,
@@ -282,15 +341,6 @@
       "dispensedAt": "2026-05-11T12:00:00.000Z"
     },
     {
-      "id": 17,
-      "dispensatorId": 1,
-      "scheduleId": null,
-      "trigger": "manual",
-      "supplyType": "RICE",
-      "amountDispensed": 200,
-      "dispensedAt": "2026-05-11T18:00:00.000Z"
-    },
-    {
       "id": 18,
       "dispensatorId": 1,
       "scheduleId": 2,
@@ -298,15 +348,6 @@
       "supplyType": "RICE",
       "amountDispensed": 175,
       "dispensedAt": "2026-05-12T07:30:00.000Z"
-    },
-    {
-      "id": 19,
-      "dispensatorId": 1,
-      "scheduleId": null,
-      "trigger": "manual",
-      "supplyType": "OTHER",
-      "amountDispensed": 120,
-      "dispensedAt": "2026-05-12T13:00:00.000Z"
     },
     {
       "id": 20,

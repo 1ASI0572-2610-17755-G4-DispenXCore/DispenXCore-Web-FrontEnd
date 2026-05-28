@@ -252,5 +252,25 @@
       "btn-history": "Ver Historial",
       "stock-remaining": "Stock Restante"
     }
+  },
+  "notifications": {
+    "title": "Historial de Notificaciones",
+    "subtitle": "Revisa alertas del sistema, horarios y registros del dispositivo.",
+    "back": "Volver",
+    "mark-all": "Marcar todo como leído",
+    "view-history": "Ver historial completo",
+    "hide-read": "Hide read",
+    "mark-read": "Mark as read",
+    "delete": "Delete",
+    "tabs": {
+      "all": "Todos",
+      "alerts": "Alertas del Sistema",
+      "schedules": "Horarios"
+    },
+    "type": {
+      "alert": "Alerta",
+      "success": "Éxito",
+      "info": "Info"
+    }
   }
 }

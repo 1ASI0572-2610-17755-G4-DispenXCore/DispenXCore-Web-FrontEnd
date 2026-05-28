@@ -252,5 +252,25 @@
       "btn-history": "View History",
       "stock-remaining": "Stock Remaining"
     }
+  },
+  "notifications": {
+    "title": "Notification History",
+    "subtitle": "Review system alerts, schedules, and device logs.",
+    "back": "Back",
+    "mark-all": "Mark all as read",
+    "view-history": "View full history",
+    "hide-read": "Ocultar leídas",
+    "mark-read": "Marcar como leída",
+    "delete": "Eliminar",
+    "tabs": {
+      "all": "All",
+      "alerts": "System Alerts",
+      "schedules": "Schedules"
+    },
+    "type": {
+      "alert": "Alert",
+      "success": "Success",
+      "info": "Info"
+    }
   }
 }

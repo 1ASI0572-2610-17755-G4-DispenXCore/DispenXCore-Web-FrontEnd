@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://dispenxcore-web-frontend.onrender.com',
+  apiBaseUrl: 'http://localhost:3000',
   // Para Local:
   //  apiBaseUrl: 'http://localhost:3000',
   // Para Deply:
@@ -11,4 +11,5 @@ export const environment = {
   dispensatorsPath: '/dispensators',
   schedulesPath: '/schedules',
   dispenserEventsPath: '/dispenser-events',
+  notificationsPath: '/notifications',
 };
