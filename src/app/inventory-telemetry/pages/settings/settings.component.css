@@ -5,19 +5,17 @@
 }
 
 .page-title {
-  font-size: 24px;
   font-weight: 600;
   color: var(--color-primary);
   margin: 0;
 }
 
 .page-subtitle {
-  font-size: 14px;
   color: var(--color-neutral-dark);
   margin: 4px 0 24px;
 }
 
-/* ── Cards ─────────────────────────────────────────── */
+/* ── Cards ── */
 .settings-card {
   background: #fff;
   border-radius: 12px;
@@ -41,7 +39,6 @@
 }
 
 .card-title {
-  font-size: 16px;
   font-weight: 600;
   margin: 0;
   color: var(--color-primary);
@@ -51,17 +48,16 @@
   padding: 24px;
 }
 
-/* ── Loading ────────────────────────────────────────── */
+/* ── Loading ── */
 .loading-row {
   display: flex;
   align-items: center;
   gap: 12px;
   color: var(--color-neutral-dark);
-  font-size: 14px;
   padding: 8px 0;
 }
 
-/* ── Device grid ────────────────────────────────────── */
+/* ── Device grid ── */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -75,10 +71,10 @@
 }
 
 .status-icon.online {
-  color: #22c55e;
+  color: var(--color-success);
 }
 
-/* ── Firmware ───────────────────────────────────────── */
+/* ── Firmware ── */
 .firmware-version-row {
   display: flex;
   align-items: flex-start;
@@ -92,7 +88,6 @@
   gap: 6px;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
@@ -134,7 +129,6 @@
 }
 
 .changelog-text {
-  font-size: 13px;
   color: var(--color-neutral-dark);
   margin: 0;
   line-height: 1.5;
@@ -149,7 +143,7 @@
   gap: 6px;
 }
 
-/* ── Notifications ──────────────────────────────────── */
+/* ── Notifications ── */
 .threshold-section {
   margin-bottom: 32px;
 }
@@ -161,7 +155,6 @@
 }
 
 .threshold-label {
-  font-size: 12px;
   font-weight: 700;
   color: var(--color-neutral-dark);
 }
@@ -171,7 +164,6 @@
   font-weight: 700;
 }
 
-/* Slider: stretch to full container width */
 .custom-slider {
   width: 100%;
   display: block;
@@ -185,9 +177,7 @@
   margin-top: 4px;
 }
 
-.notification-list {
-  /* nothing extra */
-}
+.notification-list { }
 
 .notification-item {
   display: flex;
@@ -200,16 +190,14 @@
 .notif-title {
   display: block;
   font-weight: 600;
-  font-size: 14px;
 }
 
 .notif-desc {
-  font-size: 13px;
   color: var(--color-neutral-dark);
   margin: 2px 0 0;
 }
 
-/* ── Actions ────────────────────────────────────────── */
+/* ── Actions ── */
 .settings-actions {
   display: flex;
   justify-content: flex-end;
@@ -230,7 +218,7 @@
   color: var(--color-neutral-dark) !important;
 }
 
-/* ── Utilities ──────────────────────────────────────── */
+/* ── Utilities ── */
 .full-width {
   width: 100%;
 }
