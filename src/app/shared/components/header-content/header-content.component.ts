@@ -15,8 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../language-swichter/language-switcher.component';
-import { UserDropdownComponent } from '../user-dropdown/user-dropdown.component';
-import { NotificationDropdownComponent } from '../notifications-dropdown/notifications-dropdown.component';
+import { UserDropdownComponent } from '../../../user-access/components/user-dropdown/user-dropdown.component';
+import { NotificationsDropdownComponent } from '../../../notifications-alerts/components/notifications-dropdown/notifications-dropdown.component';
 
 interface SearchResult {
   label: string;
@@ -33,7 +33,7 @@ interface SearchResult {
     MatButtonModule,
     TranslateModule,
     LanguageSwitcherComponent,
-    NotificationDropdownComponent,
+    NotificationsDropdownComponent,
     UserDropdownComponent,
   ],
   templateUrl: './header-content.component.html',

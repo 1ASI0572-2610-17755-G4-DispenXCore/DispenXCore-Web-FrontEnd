@@ -1,0 +1,262 @@
+<div class="profile-page">
+
+  <button class="btn-back" mat-button (click)="goBack()">
+    <mat-icon>arrow_back_ios</mat-icon>
+    {{ 'profile.back' | translate }}
+  </button>
+
+  <!-- ── Page Header ── -->
+  <div class="page-header">
+    <div class="page-header__info">
+      <h1 class="page-header__title">{{ 'profile.title' | translate }}</h1>
+      <p class="page-header__subtitle">{{ 'profile.subtitle' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- ── Main layout ── -->
+  <div class="profile-layout">
+
+    <!-- ── LEFT COLUMN: Personal info + Security ── -->
+    <div class="profile-main">
+
+      <!-- Personal Information Card -->
+      <div class="profile-card">
+
+        <div class="card-section-title">
+          <span class="card-section-title__dot card-section-title__dot--primary"></span>
+          <span>{{ 'profile.personal.title' | translate }}</span>
+        </div>
+
+        <!-- Photo row -->
+        <div class="photo-row">
+          <div class="photo-wrapper">
+            @if (photoPreview()) {
+              <img class="photo-img" [src]="photoPreview()" alt="Profile photo" />
+            } @else {
+              <div class="photo-placeholder">
+                <mat-icon>person</mat-icon>
+              </div>
+            }
+          </div>
+          <div class="photo-meta">
+            <p class="photo-hint">{{ 'profile.personal.photo-hint' | translate }}</p>
+            <button class="btn-change-photo" type="button" (click)="triggerFileInput()">
+              {{ 'profile.personal.change-photo' | translate }}
+            </button>
+            <input
+              id="photoInput"
+              type="file"
+              accept="image/*"
+              class="hidden-input"
+              (change)="onPhotoChange($event)"
+            />
+          </div>
+        </div>
+
+        <!-- Info form -->
+        <form [formGroup]="infoForm" class="info-form">
+
+          <div class="form-row">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'profile.personal.first-name' | translate }}</mat-label>
+              <mat-icon matPrefix>person_outline</mat-icon>
+              <input matInput formControlName="firstName" />
+              @if (fi['firstName']?.errors?.['required']) {
+                <mat-error>{{ 'profile.errors.required' | translate }}</mat-error>
+              }
+              @if (fi['firstName']?.errors?.['minlength']) {
+                <mat-error>{{ 'profile.errors.minlength' | translate: { requiredLength: 2 } }}</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'profile.personal.last-name' | translate }}</mat-label>
+              <mat-icon matPrefix>person_outline</mat-icon>
+              <input matInput formControlName="lastName" />
+              @if (fi['lastName']?.errors?.['required']) {
+                <mat-error>{{ 'profile.errors.required' | translate }}</mat-error>
+              }
+              @if (fi['lastName']?.errors?.['minlength']) {
+                <mat-error>{{ 'profile.errors.minlength' | translate: { requiredLength: 2 } }}</mat-error>
+              }
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field class="form-field form-field--full" appearance="outline">
+              <mat-label>{{ 'profile.personal.email' | translate }}</mat-label>
+              <mat-icon matPrefix>email</mat-icon>
+              <input matInput formControlName="email" type="email" />
+              @if (fi['email']?.errors?.['required']) {
+                <mat-error>{{ 'profile.errors.required' | translate }}</mat-error>
+              }
+              @if (fi['email']?.errors?.['email']) {
+                <mat-error>{{ 'profile.errors.email' | translate }}</mat-error>
+              }
+            </mat-form-field>
+          </div>
+
+          <!-- Info form actions -->
+          <div class="form-actions">
+            <button
+              mat-stroked-button
+              type="button"
+              class="btn-cancel"
+              (click)="onCancelInfo()"
+              [disabled]="isSavingInfo()">
+              {{ 'profile.actions.cancel' | translate }}
+            </button>
+            <button
+              mat-flat-button
+              type="button"
+              class="btn-save"
+              (click)="onSaveInfo()"
+              [disabled]="infoForm.invalid || isSavingInfo()">
+              @if (isSavingInfo()) {
+                <mat-icon class="spin">sync</mat-icon>
+              }
+              {{ 'profile.actions.save' | translate }}
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Security Card -->
+      <div class="profile-card">
+
+        <div class="card-section-title">
+          <span class="card-section-title__dot card-section-title__dot--primary"></span>
+          <span>{{ 'profile.security.title' | translate }}</span>
+        </div>
+
+        <form [formGroup]="passwordForm" class="info-form">
+
+          <div class="form-row">
+            <mat-form-field class="form-field form-field--full" appearance="outline">
+              <mat-label>{{ 'profile.security.current-password' | translate }}</mat-label>
+              <mat-icon matPrefix>lock_outline</mat-icon>
+              <input matInput formControlName="currentPassword" [type]="hideCurrentPassword ? 'password' : 'text'" />
+              <button type="button" mat-icon-button matSuffix (click)="hideCurrentPassword = !hideCurrentPassword">
+                <mat-icon>{{ hideCurrentPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              @if (fp['currentPassword']?.errors?.['required']) {
+                <mat-error>{{ 'profile.errors.required' | translate }}</mat-error>
+              }
+              @if (fp['currentPassword']?.errors?.['minlength']) {
+                <mat-error>{{ 'profile.errors.minlength' | translate: { requiredLength: 8 } }}</mat-error>
+              }
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'profile.security.new-password' | translate }}</mat-label>
+              <mat-icon matPrefix>lock_outline</mat-icon>
+              <input matInput formControlName="newPassword" [type]="hideNewPassword ? 'password' : 'text'" />
+              <button type="button" mat-icon-button matSuffix (click)="hideNewPassword = !hideNewPassword">
+                <mat-icon>{{ hideNewPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              @if (fp['newPassword']?.errors?.['required']) {
+                <mat-error>{{ 'profile.errors.required' | translate }}</mat-error>
+              }
+              @if (fp['newPassword']?.errors?.['minlength']) {
+                <mat-error>{{ 'profile.errors.minlength' | translate: { requiredLength: 8 } }}</mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>{{ 'profile.security.confirm-password' | translate }}</mat-label>
+              <mat-icon matPrefix>lock_outline</mat-icon>
+              <input matInput formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" />
+              <button type="button" mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">
+                <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              @if (fp['confirmPassword']?.errors?.['required']) {
+                <mat-error>{{ 'profile.errors.required' | translate }}</mat-error>
+              }
+              @if (passwordForm.errors?.['passwordMismatch'] && fp['confirmPassword']?.touched) {
+                <mat-error>{{ 'profile.errors.password-mismatch' | translate }}</mat-error>
+              }
+            </mat-form-field>
+          </div>
+
+          <!-- Password form actions -->
+          <div class="form-actions">
+            <button
+              mat-stroked-button
+              type="button"
+              class="btn-cancel"
+              (click)="onCancelPassword()"
+              [disabled]="isSavingPassword()">
+              {{ 'profile.actions.cancel' | translate }}
+            </button>
+            <button
+              mat-flat-button
+              type="button"
+              class="btn-save"
+              (click)="onSavePassword()"
+              [disabled]="passwordForm.invalid || isSavingPassword()">
+              @if (isSavingPassword()) {
+                <mat-icon class="spin">sync</mat-icon>
+              }
+              {{ 'profile.actions.save-password' | translate }}
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT COLUMN: Danger Zone ── -->
+    <div class="profile-side">
+      <div class="danger-card">
+
+        <div class="card-section-title">
+          <span class="card-section-title__dot card-section-title__dot--danger"></span>
+          <span class="danger-title">{{ 'profile.danger.title' | translate }}</span>
+        </div>
+
+        <p class="danger-description">
+          {{ 'profile.danger.description' | translate }}
+        </p>
+
+        <!-- Two-step delete: normal state -->
+        @if (!deleteConfirmPending()) {
+          <button
+            mat-stroked-button
+            type="button"
+            class="btn-delete"
+            (click)="onDeleteAccount()">
+            <mat-icon>delete_forever</mat-icon>
+            {{ 'profile.danger.delete-btn' | translate }}
+          </button>
+        }
+
+        <!-- Two-step delete: pending confirmation state -->
+        @if (deleteConfirmPending()) {
+          <div class="delete-confirm-group">
+            <button
+              mat-flat-button
+              type="button"
+              class="btn-delete-confirm"
+              (click)="onDeleteAccount()">
+              <mat-icon>warning</mat-icon>
+              {{ 'profile.danger.confirm-btn' | translate }}
+            </button>
+            <button
+              mat-stroked-button
+              type="button"
+              class="btn-cancel-delete"
+              (click)="onCancelDelete()">
+              {{ 'profile.actions.cancel' | translate }}
+            </button>
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+</div>

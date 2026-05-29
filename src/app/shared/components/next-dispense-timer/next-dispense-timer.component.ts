@@ -44,6 +44,10 @@ export class NextDispenseTimerComponent implements OnInit, OnDestroy {
 
   private startCountdown(nextDispenseAt: string | null): void {
     this.timerSub?.unsubscribe();
+
+    console.log('nextDispenseAt:', nextDispenseAt);
+    console.log('diff:', nextDispenseAt ? new Date(nextDispenseAt).getTime() - Date.now() : null);
+
     if (!nextDispenseAt) {
       this.countdown.set('--:--:--');
       return;
@@ -53,6 +57,7 @@ export class NextDispenseTimerComponent implements OnInit, OnDestroy {
       const diff = new Date(nextDispenseAt).getTime() - Date.now();
       if (diff <= 0) {
         this.countdown.set('00:00:00');
+        this.timerSub?.unsubscribe();
         this.loadStatus();
         return;
       }

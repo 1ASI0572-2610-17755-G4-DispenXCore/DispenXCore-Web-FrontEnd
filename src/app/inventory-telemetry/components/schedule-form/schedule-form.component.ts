@@ -11,8 +11,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Schedule } from '../../model/entities/schedule.entity';
 import { ScheduleService } from '../../services/schedule.service';
 import { SupplyType } from '../../model/entities/supply-type.model';
-import { CreateScheduleRequest } from '../../model/request/create-schedule.request.ts';
 import { UpdateScheduleRequest } from '../../model/request/update-schedule.request';
+import { CreateScheduleRequest } from '../../model/request/create-schedule.request';
 
 /**
  * Create / edit schedule form dialog.

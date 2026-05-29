@@ -14,7 +14,6 @@
 }
 
 .support-header__title {
-  font-size: 32px;
   font-weight: 600;
   color: var(--color-primary);
   margin: 0;
@@ -33,7 +32,6 @@
   padding: 6px 14px;
   border-radius: 20px;
   border: 1px solid var(--color-neutral-2);
-  font-size: 13px;
   font-weight: 600;
   color: var(--color-primary);
 }
@@ -41,7 +39,7 @@
 .status-dot {
   width: 8px;
   height: 8px;
-  background-color: #14B8A6;
+  background-color: var(--color-secondary);
   border-radius: 50%;
 }
 
@@ -55,7 +53,6 @@
 }
 
 .search-section__title {
-  font-size: 22px;
   color: var(--color-primary);
   margin-bottom: 20px;
 }
@@ -76,13 +73,12 @@
   border: none;
   padding: 10px;
   outline: none;
-  font-size: 14px;
 }
 
 .search-icon { color: var(--color-neutral-4); }
 
 .btn-search {
-  background-color: #006B5F;
+  background-color: var(--color-secondary-2);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -99,7 +95,6 @@
 }
 
 .section-title {
-  font-size: 16px;
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--color-primary);
@@ -114,22 +109,20 @@ mat-expansion-panel {
 }
 
 .active-panel {
-  border-color: #14B8A6 !important;
+  border-color: var(--color-secondary) !important;
 }
 
 mat-panel-title {
   font-weight: 600;
   color: var(--color-primary);
-  font-size: 14px;
 }
 
 .view-all {
   display: inline-block;
   margin-top: 16px;
-  color: #006B5F;
+  color: var(--color-secondary-2);
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
   cursor: pointer;
 }
 
@@ -155,12 +148,12 @@ mat-panel-title {
 
 .contact-card__icon mat-icon { font-size: 20px; }
 
-.chat { background-color: #E6F6F4; color: #14B8A6; }
+.chat  { background-color: #E6F6F4; color: var(--color-secondary); }
 .email { background-color: #EEF2FF; color: #4F46E5; }
 .phone { background-color: #F5F3FF; color: #7C3AED; }
 
-.contact-card__info h4 { margin: 0; font-size: 15px; color: var(--color-primary); }
-.contact-card__info p { margin: 4px 0; font-size: 13px; color: var(--color-neutral-dark); }
+.contact-card__info h4 { margin: 0; color: var(--color-primary); }
+.contact-card__info p  { margin: 4px 0; color: var(--color-neutral-dark); }
 
 .meta-text {
   font-size: 11px;
@@ -176,12 +169,11 @@ mat-panel-title {
 
 .btn-back {
   margin-bottom: 20px !important;
-  color: #006B5F !important;
+  color: var(--color-secondary-2) !important;
   font-weight: 600 !important;
 }
 
 .full-faq-title {
-  font-size: 24px;
   color: var(--color-primary);
   margin-bottom: 24px;
   font-family: 'Hanken Grotesk', sans-serif;
@@ -201,7 +193,7 @@ mat-panel-title {
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */

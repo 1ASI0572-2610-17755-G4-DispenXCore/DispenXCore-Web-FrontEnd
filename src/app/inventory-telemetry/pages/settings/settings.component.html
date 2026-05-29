@@ -1,0 +1,172 @@
+<div class="settings-page">
+  <header class="settings-header">
+    <h1 class="page-title">{{ 'settings.title' | translate }}</h1>
+    <p class="page-subtitle">{{ 'settings.subtitle' | translate }}</p>
+  </header>
+
+  <div class="settings-content">
+
+    <!-- DEVICE CARD -->
+    <section class="settings-card">
+      <div class="card-header">
+        <mat-icon class="header-icon">router</mat-icon>
+        <h2 class="card-title">{{ 'settings.device.card-title' | translate }}</h2>
+      </div>
+
+      <div class="card-body">
+        @if (isLoadingDevice()) {
+          <div class="loading-row">
+            <mat-spinner diameter="20"></mat-spinner>
+            <span>{{ 'settings.device.loading' | translate }}</span>
+          </div>
+        } @else if (device()) {
+          <div class="form-grid">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'settings.device.device-id-label' | translate }}</mat-label>
+              <input matInput [value]="device()!.id" readonly>
+              <mat-hint>{{ 'settings.device.device-id-hint' | translate }}</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'settings.device.name-label' | translate }}</mat-label>
+              <input matInput [value]="device()!.name" [readonly]="isReadOnly()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'settings.device.model-label' | translate }}</mat-label>
+              <input matInput [value]="device()!.model" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'settings.device.location-label' | translate }}</mat-label>
+              <input matInput [value]="device()!.location" [readonly]="isReadOnly()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'settings.device.serial-label' | translate }}</mat-label>
+              <input matInput [value]="device()!.serialNumber" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'settings.device.last-seen-label' | translate }}</mat-label>
+              <input matInput [value]="device()!.lastSeen | date:'medium'" readonly>
+              <mat-icon matSuffix class="status-icon" [class.online]="isOnline()">circle</mat-icon>
+            </mat-form-field>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- FIRMWARE CARD -->
+    <section class="settings-card">
+      <div class="card-header">
+        <mat-icon class="header-icon">system_update</mat-icon>
+        <h2 class="card-title">{{ 'settings.firmware.card-title' | translate }}</h2>
+      </div>
+
+      <div class="card-body">
+        @if (isLoadingFirmware()) {
+          <div class="loading-row">
+            <mat-spinner diameter="20"></mat-spinner>
+            <span>{{ 'settings.firmware.loading' | translate }}</span>
+          </div>
+        } @else if (firmware()) {
+          <div class="firmware-info">
+            <div class="firmware-version-row">
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>{{ 'settings.firmware.current-label' | translate }}</mat-label>
+                <input matInput [value]="firmware()!.version" readonly>
+                <mat-hint>{{ 'settings.firmware.released-hint' | translate }} {{ firmware()!.releasedAt | date:'mediumDate' }}</mat-hint>
+              </mat-form-field>
+
+              <div class="firmware-status-badge" [class.up-to-date]="firmware()!.isLatest" [class.outdated]="!firmware()!.isLatest">
+                <mat-icon>{{ firmware()!.isLatest ? 'check_circle' : 'warning' }}</mat-icon>
+                <span>{{ firmware()!.isLatest ? ('settings.firmware.up-to-date' | translate) : ('settings.firmware.outdated' | translate) }}</span>
+              </div>
+            </div>
+
+            @if (firmware()!.changelog) {
+              <div class="changelog-box">
+                <span class="changelog-label">{{ 'settings.firmware.changelog-label' | translate }}</span>
+                <p class="changelog-text">{{ firmware()!.changelog }}</p>
+              </div>
+            }
+
+            @if (!firmware()!.isLatest) {
+              <button mat-flat-button class="btn-update" [disabled]="isReadOnly()">
+                <mat-icon>download</mat-icon>
+                {{ 'settings.firmware.btn-update' | translate }}
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- NOTIFICATIONS CARD -->
+    <section class="settings-card">
+      <div class="card-header">
+        <mat-icon class="header-icon">notifications_none</mat-icon>
+        <h2 class="card-title">{{ 'settings.notifications.card-title' | translate }}</h2>
+      </div>
+
+      <div class="card-body">
+        <div class="threshold-section">
+          <div class="threshold-header">
+            <span class="threshold-label">{{ 'settings.notifications.threshold-label' | translate }}</span>
+            <span class="threshold-value">{{ thresholdValue() }}%</span>
+          </div>
+          <mat-slider min="5" max="50" step="1" discrete class="custom-slider" [disabled]="isReadOnly()">
+            <input matSliderThumb [(ngModel)]="thresholdValue">
+          </mat-slider>
+          <div class="threshold-bounds">
+            <span>5%</span>
+            <span>50%</span>
+          </div>
+        </div>
+
+        <div class="notification-list">
+          <div class="notification-item">
+            <div class="notif-info">
+              <span class="notif-title">{{ 'settings.notifications.push-title' | translate }}</span>
+              <p class="notif-desc">{{ 'settings.notifications.push-desc' | translate }}</p>
+            </div>
+            <mat-slide-toggle color="primary" [(ngModel)]="pushEnabled" [disabled]="isReadOnly()"></mat-slide-toggle>
+          </div>
+
+          <div class="notification-item">
+            <div class="notif-info">
+              <span class="notif-title">{{ 'settings.notifications.sms-title' | translate }}</span>
+              <p class="notif-desc">{{ 'settings.notifications.sms-desc' | translate }}</p>
+            </div>
+            <mat-slide-toggle color="primary" [(ngModel)]="smsEnabled" [disabled]="isReadOnly()"></mat-slide-toggle>
+          </div>
+
+          <div class="notification-item">
+            <div class="notif-info">
+              <span class="notif-title">{{ 'settings.notifications.email-title' | translate }}</span>
+              <p class="notif-desc">{{ 'settings.notifications.email-desc' | translate }}</p>
+            </div>
+            <mat-slide-toggle color="primary" [(ngModel)]="emailEnabled" [disabled]="isReadOnly()"></mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="settings-actions">
+      @if (isReadOnly()) {
+        <button mat-flat-button class="btn-edit" (click)="onEdit()">
+          {{ 'settings.actions.edit' | translate }}
+        </button>
+      } @else {
+        <button mat-button class="btn-cancel" (click)="onCancel()">
+          {{ 'settings.actions.cancel' | translate }}
+        </button>
+        <button mat-flat-button class="btn-save" (click)="onSave()">
+          {{ 'settings.actions.save' | translate }}
+        </button>
+      }
+    </footer>
+
+  </div>
+</div>

@@ -68,7 +68,7 @@ export class UserDropdownComponent implements OnInit {
 
   onEditProfile() {
     this.isOpen.set(false);
-    this.router.navigate(['/not-found']);
+    this.router.navigate(['/profile']);
   }
 
   onLogout() {
