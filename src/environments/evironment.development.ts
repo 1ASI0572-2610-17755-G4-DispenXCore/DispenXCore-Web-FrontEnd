@@ -8,4 +8,6 @@ export const environment = {
   schedulesPath: '/schedules',
   dispenserEventsPath: '/dispenser-events',
   notificationsPath: '/notifications',
+  devicePath: '/device',
+  firmwarePath: '/firmware',
 };

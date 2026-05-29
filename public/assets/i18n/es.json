@@ -10,7 +10,7 @@
     "errors": {
       "required": "Este campo es obligatorio",
       "email": "Ingresa un correo válido",
-      "minlength": "Mínimo {requiredLength} caracteres"
+      "minlength": "Mínimo 9 caracteres"
     },
     "success": "Sesión iniciada correctamente.",
     "error": "Correo o contraseña incorrectos. Intenta de nuevo.",
@@ -161,30 +161,42 @@
   },
   "settings": {
     "title": "Configuración",
-    "subtitle": "Gestiona la configuración de tu dispositivo, notificaciones y preferencias de cuenta.",
+    "subtitle": "Administra los datos de tu dispositivo y preferencias de notificación",
     "device": {
-      "card-title": "Configuración del Dispositivo",
-      "device-id-label": "ID DEL DISPOSITIVO",
-      "device-id-hint": "Identificador único de tu DispenXCore Pro.",
-      "wifi-label": "RED WIFI",
-      "firmware-label": "VERSIÓN DE FIRMWARE",
-      "btn-scan": "Escanear",
-      "btn-check": "Buscar actualizaciones"
+      "card-title": "Información del dispositivo",
+      "loading": "Cargando dispositivo...",
+      "device-id-label": "ID del dispositivo",
+      "device-id-hint": "Identificador único del hardware",
+      "name-label": "Nombre",
+      "model-label": "Modelo",
+      "location-label": "Ubicación",
+      "serial-label": "Número de serie",
+      "last-seen-label": "Última conexión"
+    },
+    "firmware": {
+      "card-title": "Firmware",
+      "loading": "Cargando firmware...",
+      "current-label": "Versión instalada",
+      "released-hint": "Publicado el",
+      "up-to-date": "Al día",
+      "outdated": "Actualización disponible",
+      "changelog-label": "Novedades",
+      "btn-update": "Actualizar firmware"
     },
     "notifications": {
-      "card-title": "Preferencias de Notificaciones",
-      "threshold-label": "UMBRAL DE ALERTA DE STOCK BAJO",
-      "push-title": "Notificaciones Push",
-      "push-desc": "Recibe alertas directamente en tu dispositivo móvil.",
-      "sms-title": "Alertas SMS",
-      "sms-desc": "Alertas críticas enviadas por mensaje de texto.",
-      "email-title": "Resumen por Correo",
-      "email-desc": "Reportes semanales sobre historial de alimentación y stock."
+      "card-title": "Notificaciones",
+      "threshold-label": "Umbral de alerta de nivel bajo",
+      "push-title": "Notificaciones push",
+      "push-desc": "Recibe alertas en tiempo real en tu dispositivo móvil",
+      "sms-title": "SMS",
+      "sms-desc": "Recibe alertas por mensaje de texto",
+      "email-title": "Correo electrónico",
+      "email-desc": "Recibe alertas en tu bandeja de entrada"
     },
     "actions": {
       "edit": "Editar",
       "cancel": "Cancelar",
-      "save": "Guardar Cambios"
+      "save": "Guardar cambios"
     }
   },
   "support": {
@@ -271,6 +283,57 @@
       "alert": "Alerta",
       "success": "Éxito",
       "info": "Info"
+    }
+  },
+  "profile": {
+    "title": "Configuración de Perfil",
+    "subtitle": "Gestiona tu información personal, seguridad y preferencias de cuenta.",
+    "back": "Atrás",
+    "personal": {
+      "title": "Información Personal",
+      "photo-hint": "Foto de perfil recomendada: 400x400px o superior.",
+      "change-photo": "CAMBIAR FOTO",
+      "first-name": "Nombre",
+      "last-name": "Apellido",
+      "email": "Correo electrónico"
+    },
+    "security": {
+      "title": "Seguridad",
+      "current-password": "Contraseña actual",
+      "new-password": "Nueva contraseña",
+      "confirm-password": "Confirmar nueva contraseña"
+    },
+    "danger": {
+      "title": "Zona de Peligro",
+      "description": "Eliminar tu cuenta es una acción permanente y no se puede deshacer. Se perderán todos tus datos y configuraciones.",
+      "delete-btn": "ELIMINAR CUENTA",
+      "dialog": {
+        "title": "Eliminar Cuenta",
+        "body": "¿Estás seguro de que deseas eliminar permanentemente tu cuenta? Esta acción no se puede deshacer y todos tus datos se perderán.",
+        "cancel": "CANCELAR",
+        "confirm": "SÍ, ELIMINAR"
+      },
+      "warning": "Esta acción es irreversible. Haz clic en CONFIRMAR ELIMINACIÓN para eliminar permanentemente tu cuenta.",
+      "confirm-btn": "CONFIRMAR ELIMINACIÓN"
+    },
+    "actions": {
+      "cancel": "CANCELAR",
+      "save": "GUARDAR CAMBIOS",
+      "save-password": "ACTUALIZAR CONTRASEÑA"
+    },
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "email": "Ingresa un correo válido",
+      "minlength": "Mínimo 9 caracteres",
+      "password-mismatch": "Las contraseñas no coinciden",
+      "wrong-password": "La contraseña actual es incorrecta",
+      "load": "Error al cargar los datos del perfil",
+      "save": "Error al guardar los cambios. Inténtalo de nuevo.",
+      "delete": "Error al eliminar la cuenta. Inténtalo de nuevo."
+    },
+    "success": {
+      "info": "Perfil actualizado correctamente.",
+      "password": "Contraseña actualizada correctamente."
     }
   }
 }

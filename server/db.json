@@ -11,12 +11,13 @@
     },
     {
       "id": 2,
-      "firstName": "Rad",
-      "lastName": "V",
+      "firstName": "RADV",
+      "lastName": "2005",
       "email": "radv@gmail.com",
       "password": "123456789",
       "role": "USER",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "photoUrl": "https://i.pinimg.com/736x/e4/48/2e/e4482e4f8aae423e7cd1af9496fb57c2.jpg"
     }
   ],
   "dispensators": [
@@ -61,13 +62,7 @@
       "supplyType": "RICE",
       "amount": 150,
       "scheduledTime": "07:30",
-      "frequencyDays": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "frequencyDays": [1, 2, 3, 4, 5],
       "smartRefill": true,
       "isActive": true
     },
@@ -78,15 +73,7 @@
       "supplyType": "RICE",
       "amount": 200,
       "scheduledTime": "12:00",
-      "frequencyDays": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
+      "frequencyDays": [1, 2, 3, 4, 5, 6, 7],
       "smartRefill": false,
       "isActive": true
     },
@@ -97,11 +84,7 @@
       "supplyType": "OTHER",
       "amount": 100,
       "scheduledTime": "19:00",
-      "frequencyDays": [
-        1,
-        3,
-        5
-      ],
+      "frequencyDays": [1, 3, 5],
       "smartRefill": true,
       "isActive": true
     },
@@ -112,10 +95,7 @@
       "supplyType": "RICE",
       "amount": 120,
       "scheduledTime": "08:00",
-      "frequencyDays": [
-        6,
-        7
-      ],
+      "frequencyDays": [6, 7],
       "smartRefill": false,
       "isActive": true
     },
@@ -126,12 +106,7 @@
       "supplyType": "BEANS",
       "amount": 20,
       "scheduledTime": "23:00",
-      "frequencyDays": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "frequencyDays": [1, 2, 3, 4],
       "smartRefill": true,
       "isActive": true
     }
@@ -357,6 +332,41 @@
       "supplyType": "RICE",
       "amountDispensed": 120,
       "dispensedAt": "2026-05-10T08:00:00.000Z"
+    }
+  ],
+  "device": {
+    "id": "DP-HOGAR-RADC",
+    "name": "Dispositivo Principal",
+    "model": "DosePro Home v2",
+    "location": "Sala principal",
+    "serialNumber": "SN-20240315-00421",
+    "registeredAt": "2024-03-15T10:00:00.000Z",
+    "lastSeen": "2026-05-28T14:32:00.000Z"
+  },
+  "firmware": [
+    {
+      "id": "fw-001",
+      "version": "v2.3.0",
+      "releasedAt": "2024-11-01T00:00:00.000Z",
+      "changelog": "Mejora en la precisión del sensor de dosis. Corrección de errores menores en la sincronización.",
+      "isLatest": false,
+      "downloadUrl": "https://updates.dosepro.io/firmware/v2.3.0.bin"
+    },
+    {
+      "id": "fw-002",
+      "version": "v2.4.0",
+      "releasedAt": "2025-02-10T00:00:00.000Z",
+      "changelog": "Soporte para nuevos perfiles de usuario. Optimización del consumo energético en modo reposo.",
+      "isLatest": false,
+      "downloadUrl": "https://updates.dosepro.io/firmware/v2.4.0.bin"
+    },
+    {
+      "id": "fw-003",
+      "version": "v2.4.1",
+      "releasedAt": "2025-05-20T00:00:00.000Z",
+      "changelog": "Parche de seguridad crítico. Mejora en la estabilidad de la conexión Bluetooth.",
+      "isLatest": true,
+      "downloadUrl": "https://updates.dosepro.io/firmware/v2.4.1.bin"
     }
   ]
 }

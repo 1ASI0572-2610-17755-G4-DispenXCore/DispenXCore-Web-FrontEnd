@@ -1,0 +1,240 @@
+.settings-page {
+  padding: 30px;
+  background-color: var(--bg-light);
+  min-height: 100%;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--color-neutral-dark);
+  margin: 4px 0 24px;
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+.settings-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--color-neutral-2);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-neutral-2);
+  background-color: #fafbfc;
+}
+
+.header-icon {
+  color: var(--color-secondary-2);
+  font-size: 20px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* ── Loading ────────────────────────────────────────── */
+.loading-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-neutral-dark);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+/* ── Device grid ────────────────────────────────────── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.status-icon {
+  font-size: 12px;
+  color: var(--color-neutral-3);
+  transition: color 0.3s;
+}
+
+.status-icon.online {
+  color: #22c55e;
+}
+
+/* ── Firmware ───────────────────────────────────────── */
+.firmware-version-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.firmware-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+.firmware-status-badge.up-to-date {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.firmware-status-badge.outdated {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+
+.firmware-status-badge mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.changelog-box {
+  background: #f8fafc;
+  border: 1px solid var(--color-neutral-2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.changelog-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-neutral-3);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.changelog-text {
+  font-size: 13px;
+  color: var(--color-neutral-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btn-update {
+  background-color: var(--color-secondary-2) !important;
+  color: #fff !important;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Notifications ──────────────────────────────────── */
+.threshold-section {
+  margin-bottom: 32px;
+}
+
+.threshold-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.threshold-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-neutral-dark);
+}
+
+.threshold-value {
+  color: var(--color-secondary-2);
+  font-weight: 700;
+}
+
+/* Slider: stretch to full container width */
+.custom-slider {
+  width: 100%;
+  display: block;
+}
+
+.threshold-bounds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--color-neutral-3);
+  margin-top: 4px;
+}
+
+.notification-list {
+  /* nothing extra */
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #f1f3f5;
+}
+
+.notif-title {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.notif-desc {
+  font-size: 13px;
+  color: var(--color-neutral-dark);
+  margin: 2px 0 0;
+}
+
+/* ── Actions ────────────────────────────────────────── */
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn-save,
+.btn-edit {
+  background-color: var(--color-secondary-2) !important;
+  color: #fff !important;
+  padding: 0 32px !important;
+  font-weight: 600;
+}
+
+.btn-cancel {
+  border: 1px solid var(--color-neutral-2) !important;
+  color: var(--color-neutral-dark) !important;
+}
+
+/* ── Utilities ──────────────────────────────────────── */
+.full-width {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-mdc-form-field.mat-form-field-disabled {
+  opacity: 0.8;
+}

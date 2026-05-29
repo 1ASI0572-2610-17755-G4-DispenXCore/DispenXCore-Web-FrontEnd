@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 import { Schedule } from '../model/entities/schedule.entity';
 import { UpdateScheduleRequest } from '../model/request/update-schedule.request';
 import { NotificationService } from '../../shared/services/notification.service';
-import { CreateScheduleRequest } from '../model/request/create-schedule.request.ts';
+import { CreateScheduleRequest } from '../model/request/create-schedule.request';
 
 @Injectable({ providedIn: 'root' })
 export class ScheduleService {

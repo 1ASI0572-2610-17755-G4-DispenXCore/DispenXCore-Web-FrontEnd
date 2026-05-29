@@ -6,10 +6,11 @@ import { authenticationGuard } from './user-access/services/authentication.guard
 import { DashboardComponent } from './shared/pages/dashboard/dashboard.component';
 import { ScheduleComponent } from './inventory-telemetry/pages/schedule/schedule.component';
 import { HistoryComponent } from './inventory-telemetry/pages/history/history.component';
-import { SettingsComponent } from './shared/pages/settings/settings.component';
+import { SettingsComponent } from './inventory-telemetry/pages/settings/settings.component';
 import { SupportComponent } from './shared/pages/support/support.component';
 import { NotFoundComponent } from './shared/pages/not-found/not-found.component';
 import { NotificationsComponent } from './notifications-alerts/pages/notifications.component/notifications.component';
+import { ProfileComponent } from './user-access/pages/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,7 @@ export const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: 'support', component: SupportComponent },
       { path: 'notifications', component: NotificationsComponent },
+      { path: 'profile', component: ProfileComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
