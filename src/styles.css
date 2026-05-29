@@ -40,7 +40,13 @@
   --bg-light: #F8FAFC;
   --bg-medium: #E2E8F0;
   --bg-dark: #1E293B;
+
+  /* ===== Extras needed by profile ===== */
+  --color-text-muted: #3C4947;
+  --color-error-subtle: rgba(239, 68, 68, 0.08);
 }
+
+
 
 /* ========== BASE STYLES ========== */
 

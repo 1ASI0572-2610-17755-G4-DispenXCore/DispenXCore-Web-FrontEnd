@@ -9,6 +9,7 @@ export class User {
   password: string;
   role: Role;
   status: AccountStatus;
+  photoUrl: string;
 
   constructor(user: Partial<User> = {}) {
     this.id = user.id ?? 0;
@@ -18,9 +19,8 @@ export class User {
     this.password = user.password ?? '';
     this.role = user.role ?? Role.USER;
     this.status = user.status ?? AccountStatus.INACTIVE;
+    this.photoUrl = user.photoUrl ?? '';
   }
 }
-
-
 
 

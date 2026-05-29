@@ -33,7 +33,7 @@
     "errors": {
       "required": "This field is required",
       "invalid-email": "Enter a valid email",
-      "minlength": "Minimum {requiredLength} characters",
+      "minlength": "Minimum 9 characters",
       "accept-terms": "You must accept the terms"
     }
   },
@@ -161,30 +161,42 @@
   },
   "settings": {
     "title": "Settings",
-    "subtitle": "Manage your device configuration, notifications, and account preferences.",
+    "subtitle": "Manage your device information and notification preferences",
     "device": {
-      "card-title": "Device Configuration",
-      "device-id-label": "DEVICE ID",
-      "device-id-hint": "Unique Identifier for your DispenXCore Pro.",
-      "wifi-label": "WIFI NETWORK",
-      "firmware-label": "FIRMWARE VERSION",
-      "btn-scan": "Scan",
-      "btn-check": "Check for Updates"
+      "card-title": "Device information",
+      "loading": "Loading device...",
+      "device-id-label": "Device ID",
+      "device-id-hint": "Unique hardware identifier",
+      "name-label": "Name",
+      "model-label": "Model",
+      "location-label": "Location",
+      "serial-label": "Serial number",
+      "last-seen-label": "Last connection"
+    },
+    "firmware": {
+      "card-title": "Firmware",
+      "loading": "Loading firmware...",
+      "current-label": "Installed version",
+      "released-hint": "Released on",
+      "up-to-date": "Up to date",
+      "outdated": "Update available",
+      "changelog-label": "What's new",
+      "btn-update": "Update firmware"
     },
     "notifications": {
-      "card-title": "Notification Preferences",
-      "threshold-label": "LOW STOCK ALERT THRESHOLD",
-      "push-title": "App Push Notifications",
-      "push-desc": "Receive alerts directly on your mobile device.",
-      "sms-title": "SMS Alerts",
-      "sms-desc": "Critical alerts sent via text message.",
-      "email-title": "Email Summary",
-      "email-desc": "Weekly reports on feeding history and stock."
+      "card-title": "Notifications",
+      "threshold-label": "Low level alert threshold",
+      "push-title": "Push notifications",
+      "push-desc": "Receive real-time alerts on your mobile device",
+      "sms-title": "SMS",
+      "sms-desc": "Receive alerts via text message",
+      "email-title": "Email",
+      "email-desc": "Receive alerts in your inbox"
     },
     "actions": {
       "edit": "Edit",
       "cancel": "Cancel",
-      "save": "Save Changes"
+      "save": "Save changes"
     }
   },
   "support": {
@@ -230,27 +242,107 @@
     }
   },
   "dashboard": {
-    "title": "Device Overview",
-    "subtitle": "Monitoring status for Device ID:",
-    "system-online": "System Online",
-    "supply": {
-      "beans": "Beans",
-      "peas": "Peas",
-      "rice": "Rice"
-    },
+    "title": "Dashboard",
+    "subtitle": "Device status",
+    "system-online": "System online",
+    "system-offline": "System disconnected",
     "metrics": {
-      "weight": "WEIGHT",
-      "grain-level": "GRAIN LEVEL",
-      "flow-rate": "FLOW RATE",
+      "weight": "Current weight",
+      "grain-level": "Grain level",
+      "next-dispense": "Next dispense",
+      "daily-total": "Today's total",
       "capacity": "Capacity",
-      "healthy": "Healthy"
+      "no-schedule": "No active schedule",
+      "healthy": "Healthy",
+      "low": "Low",
+      "critical": "Critical"
     },
     "inventory": {
-      "title": "Stock Inventory Status",
-      "desc": "Current reserve levels indicate a replenishment will be required within 5-7 days based on current flow rate.",
-      "btn-refill": "Order Refill",
-      "btn-history": "View History",
-      "stock-remaining": "Stock Remaining"
+      "title": "Inventory status",
+      "desc": "Check your dispenser's current level and request a refill when needed.",
+      "btn-refill": "Order refill",
+      "btn-history": "View history",
+      "stock-remaining": "Stock remaining"
+    },
+    "side": {
+      "title": "Summary",
+      "current-capacity": "Current capacity",
+      "max-capacity": "Max capacity",
+      "daily-total": "Total dispensed today",
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "next-dispense": "Next dispense"
+    }
+  },
+  "notifications": {
+    "title": "Notification History",
+    "subtitle": "Review system alerts, schedules and device logs.",
+    "back": "Back",
+    "mark-all": "Mark all as read",
+    "view-history": "View full history",
+    "hide-read": "Hide read",
+    "mark-read": "Mark as read",
+    "delete": "Delete",
+    "tabs": {
+      "all": "All",
+      "alerts": "System Alerts",
+      "schedules": "Schedules"
+    },
+    "type": {
+      "alert": "Alert",
+      "success": "Success",
+      "info": "Info"
+    }
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "subtitle": "Manage your personal information, security, and account preferences.",
+    "back": "Back",
+    "personal": {
+      "title": "Personal Information",
+      "photo-hint": "Recommended profile photo: 400x400px or higher.",
+      "change-photo": "CHANGE PHOTO",
+      "first-name": "First Name",
+      "last-name": "Last Name",
+      "email": "Email"
+    },
+    "security": {
+      "title": "Security",
+      "current-password": "Current Password",
+      "new-password": "New Password",
+      "confirm-password": "Confirm New Password"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "description": "Deleting your account is a permanent action and cannot be undone. All your data and settings will be lost.",
+      "delete-btn": "DELETE ACCOUNT",
+      "dialog": {
+        "title": "Delete Account",
+        "body": "Are you sure you want to permanently delete your account? This action cannot be undone and all your data will be lost.",
+        "cancel": "CANCEL",
+        "confirm": "YES, DELETE"
+      },
+      "warning": "This action is irreversible. Click CONFIRM DELETE to permanently delete your account.",
+      "confirm-btn": "CONFIRM DELETE"
+    },
+    "actions": {
+      "cancel": "CANCEL",
+      "save": "SAVE CHANGES",
+      "save-password": "UPDATE PASSWORD"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Enter a valid email",
+      "minlength": "Minimum 9 characters",
+      "password-mismatch": "Passwords do not match",
+      "wrong-password": "Current password is incorrect",
+      "load": "Failed to load profile data",
+      "save": "Failed to save changes. Please try again.",
+      "delete": "Failed to delete account. Please try again."
+    },
+    "success": {
+      "info": "Profile updated successfully.",
+      "password": "Password updated successfully."
     }
   }
 }

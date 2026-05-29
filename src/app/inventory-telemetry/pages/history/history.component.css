@@ -17,16 +17,11 @@
 .page-header__title {
   margin: 0 0 4px;
   font-family: 'Hanken Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  color: rgba(21, 28, 39, 1);
 }
 
 .page-header__subtitle {
   margin: 0;
-  font-size: 14px;
-  color: rgba(85, 95, 111, 1);
-  font-family: 'Inter', sans-serif;
+  color: var(--color-neutral-dark);
 }
 
 .page-header__device {
@@ -57,17 +52,14 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(85, 95, 111, 1);
+  color: var(--color-neutral-dark);
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
 
 .period-toggle__btn--active {
   background: rgba(231, 238, 254, 1);
-  color: rgba(21, 28, 39, 1);
+  color: var(--color-primary);
   font-weight: 600;
 }
 
@@ -83,14 +75,10 @@
 }
 
 .supply-filter__select {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(21, 28, 39, 1);
+  color: var(--color-primary);
   min-width: 120px;
   border: none;
   background: transparent;
-
-  /* strip Material underline */
   --mdc-filled-text-field-container-color: transparent;
   --mat-select-trigger-text-size: 14px;
 }
@@ -133,10 +121,8 @@
 
 .stat-card__label {
   display: block;
-  font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 12px;
-  color: rgba(85, 95, 111, 1);
+  color: var(--color-neutral-dark);
   letter-spacing: 0.04em;
   margin-bottom: 12px;
 }
@@ -150,15 +136,12 @@
 .stat-card__value {
   font-family: 'Hanken Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 48px;
-  color: rgba(21, 28, 39, 1);
+  color: var(--color-primary);
   line-height: 1;
 }
 
 .stat-card__unit {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(85, 95, 111, 1);
+  color: var(--color-neutral-dark);
   padding-bottom: 8px;
 }
 
@@ -173,14 +156,12 @@
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background: #006b5f;
+  background: var(--color-secondary-2);
   flex-shrink: 0;
 }
 
 .stat-card__trend-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #006b5f;
+  color: var(--color-secondary-2);
 }
 
 .stat-card__bg-circle {
@@ -213,10 +194,8 @@
 
 .log-card__title {
   margin: 0;
-  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 18px;
-  color: rgba(21, 28, 39, 1);
+  color: var(--color-primary);
 }
 
 .log-card__export {
@@ -226,9 +205,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(85, 95, 111, 1);
+  color: var(--color-neutral-dark);
   transition: color 0.15s;
 }
 
