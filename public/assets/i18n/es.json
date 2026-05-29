@@ -242,27 +242,36 @@
     }
   },
   "dashboard": {
-    "title": "Vista General del Dispositivo",
-    "subtitle": "Monitoreando estado para el ID de Dispositivo:",
-    "system-online": "Sistema Online",
-    "supply": {
-      "beans": "Frijoles",
-      "peas": "Arvejas",
-      "rice": "Arroz"
-    },
+    "title": "Dashboard",
+    "subtitle": "Estado del dispositivo",
+    "system-online": "Sistema en línea",
+    "system-offline": "Sistema desconectado",
     "metrics": {
-      "weight": "PESO",
-      "grain-level": "NIVEL DE GRANO",
-      "flow-rate": "TASA DE FLUJO",
+      "weight": "Peso actual",
+      "grain-level": "Nivel de grano",
+      "next-dispense": "Próxima dispensación",
+      "daily-total": "Total hoy",
       "capacity": "Capacidad",
-      "healthy": "Saludable"
+      "no-schedule": "Sin horario activo",
+      "healthy": "Saludable",
+      "low": "Bajo",
+      "critical": "Crítico"
     },
     "inventory": {
-      "title": "Estado del Inventario",
-      "desc": "Los niveles de reserva actuales indican que se requerirá reabastecimiento en 5-7 días según la tasa de flujo actual.",
-      "btn-refill": "Pedir Recarga",
-      "btn-history": "Ver Historial",
-      "stock-remaining": "Stock Restante"
+      "title": "Estado del inventario",
+      "desc": "Revisa el nivel actual de tu dispensador y solicita una recarga cuando sea necesario.",
+      "btn-refill": "Solicitar recarga",
+      "btn-history": "Ver historial",
+      "stock-remaining": "Stock restante"
+    },
+    "side": {
+      "title": "Resumen",
+      "current-capacity": "Capacidad actual",
+      "max-capacity": "Capacidad máxima",
+      "daily-total": "Total dispensado hoy",
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "next-dispense": "Próxima dispensación"
     }
   },
   "notifications": {
@@ -271,9 +280,9 @@
     "back": "Volver",
     "mark-all": "Marcar todo como leído",
     "view-history": "Ver historial completo",
-    "hide-read": "Hide read",
-    "mark-read": "Mark as read",
-    "delete": "Delete",
+    "hide-read": "Ocultar leídos",
+    "mark-read": "Marcar como leído",
+    "delete": "Eliminar",
     "tabs": {
       "all": "Todos",
       "alerts": "Alertas del Sistema",

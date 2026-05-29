@@ -11,6 +11,7 @@ export const environment = {
   dispensatorsPath: '/dispensators',
   schedulesPath: '/schedules',
   dispenserEventsPath: '/dispenser-events',
+  dispensatorStatusPath: '/dispensator-status',
   notificationsPath: '/notifications',
   devicePath: '/device',
   firmwarePath: '/firmware',
