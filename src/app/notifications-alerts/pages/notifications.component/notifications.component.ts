@@ -44,11 +44,11 @@ export class NotificationsComponent implements OnInit {
     return list;
   }
 
-  markAsRead(id: number): void {
+  markAsRead(id: string): void {
     this.state.markAsRead(id);
   }
 
-  delete(id: number): void {
+  delete(id: string): void {
     this.state.delete(id);
   }
 

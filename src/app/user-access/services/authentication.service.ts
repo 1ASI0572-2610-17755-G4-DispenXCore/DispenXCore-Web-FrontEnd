@@ -50,25 +50,15 @@ export class Authentication {
   // ── Sign In ─────────────────────────────────────────────────────────────────
 
   signIn(signInRequest: SignInRequest): void {
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
-    this.http.get<any[]>(`${this.signInUrl}`, this.httpOptions).subscribe({
-      next: (users) => {
-        const user = users.find(
-          (u) => u.email === signInRequest.email && u.password === signInRequest.password,
-        );
-
-        if (!user) {
-          this.translate.get('sign-in.error').subscribe((msg) => this.notification.showError(msg));
-          return;
-        }
-
-        const response: AuthenticationResponse = {
-          token: btoa(`${user.email}:${user.role}:${Date.now()}`),
-          username: `${user.firstName} ${user.lastName}`,
-          role: user.role,
+    this.http.post<any>(this.signInUrl, signInRequest, this.httpOptions).subscribe({
+      next: (response) => {
+        // El backend devuelve { token, user: { id, firstName, ... } }
+        const authResponse: AuthenticationResponse = {
+          token: response.token,
+          username: `${response.user.firstName} ${response.user.lastName}`,
+          role: response.user.role,
         };
-
-        this._handleSignInSuccess(response, user);
+        this._handleSignInSuccess(authResponse, response.user);
       },
       error: (error) => {
         console.error('Sign-in error:', error);
@@ -77,41 +67,16 @@ export class Authentication {
         this.router.navigate(['/sign-in']).then();
       },
     });
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // this.http
-    //   .post<AuthenticationResponse>(this.signInUrl, signInRequest, this.httpOptions)
-    //   .subscribe({
-    //     next: (response) => this._handleSignInSuccess(response),
-    //     error: (error) => {
-    //       console.error('Sign-in error:', error);
-    //       this._clearSession();
-    //       this.translate.get('sign-in.error').subscribe((msg) => this.notification.showError(msg));
-    //       this.router.navigate(['/sign-in']).then();
-    //     },
-    //   });
   }
 
   // ── Sign Up ─────────────────────────────────────────────────────────────────
 
   signUp(signUpRequest: SignUpRequest): Observable<AuthenticationResponse> {
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
-    const newUser = { ...signUpRequest, role: 'USER', status: 'ACTIVE' };
-    return this.http
-      .post<any>(this.signUpUrl, newUser, this.httpOptions)
-      .pipe(
-        map(
-          (user) =>
-            new AuthenticationResponse(
-              btoa(`${user.email}:${user.role}:${Date.now()}`),
-              `${user.firstName} ${user.lastName}`,
-              user.role,
-            ),
-        ),
-      );
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // return this.http.post<AuthenticationResponse>(this.signUpUrl, signUpRequest, this.httpOptions);
+    return this.http.post<any>(this.signUpUrl, signUpRequest, this.httpOptions).pipe(
+      map(
+        () => new AuthenticationResponse('', '', ''), // el register solo devuelve { message }
+      ),
+    );
   }
 
   // ── Sign Out ────────────────────────────────────────────────────────────────

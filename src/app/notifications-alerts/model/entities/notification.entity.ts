@@ -1,7 +1,7 @@
 import { NotificationType } from './notification-type.model';
 
 export class Notification {
-  id: number;
+  id: string;
   userId: number;
   type: NotificationType;
   title: string;
@@ -12,7 +12,7 @@ export class Notification {
   createdAt: Date;
 
   constructor(notification: Partial<Notification> = {}) {
-    this.id = notification.id ?? 0;
+    this.id = notification.id ?? '';
     this.userId = notification.userId ?? 0;
     this.type = notification.type ?? NotificationType.INFO;
     this.title = notification.title ?? '';
