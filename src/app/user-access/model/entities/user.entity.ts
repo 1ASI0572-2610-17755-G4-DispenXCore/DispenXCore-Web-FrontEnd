@@ -2,7 +2,7 @@ import { AccountStatus } from './accountStatus.model';
 import { Role } from './role.model';
 
 export class User {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -12,7 +12,7 @@ export class User {
   photoUrl: string;
 
   constructor(user: Partial<User> = {}) {
-    this.id = user.id ?? 0;
+    this.id = user.id ?? '';
     this.firstName = user.firstName ?? '';
     this.lastName = user.lastName ?? '';
     this.email = user.email ?? '';

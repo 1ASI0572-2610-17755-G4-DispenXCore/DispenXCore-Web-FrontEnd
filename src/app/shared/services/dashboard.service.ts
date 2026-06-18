@@ -12,34 +12,16 @@ export class DashboardService {
 
   private http = inject(HttpClient);
 
-  // ── Dispenser status ─────────────────────────────────────────────────────────
 
   getStatusByDispensator(dispensatorId: number): Observable<DispenserStatus> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
     return this.http
-      .get<DispenserStatus[]>(`${this.statusUrl}?dispensatorId=${dispensatorId}`)
-      .pipe(
-        // Mapear el plain object a instancia de clase para que los getters funcionen
-        map((list) => new DispenserStatus(list[0])),
-      );
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http
-    //   .get<DispenserStatusResponse>(`${this.statusUrl}/${dispensatorId}`)
-    //   .pipe(map(r => new DispenserStatus(r.data)));
+      .get<DispenserStatus>(`${this.statusUrl}/${dispensatorId}`)
+      .pipe(map((data) => new DispenserStatus(data)));
   }
 
-  // ── Dispensators ─────────────────────────────────────────────────────────────
-
   getDispensators(): Observable<Dispensator[]> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
     return this.http
       .get<Dispensator[]>(this.dispensatorsUrl)
       .pipe(map((list) => list.map((d) => new Dispensator(d))));
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http
-    //   .get<DispensatorListResponse>(this.dispensatorsUrl)
-    //   .pipe(map(r => r.data.map(d => new Dispensator(d))));
   }
 }

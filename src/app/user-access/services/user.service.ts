@@ -33,7 +33,7 @@ export class UserService extends BaseService<User> {
 
   // ── Current user from localStorage ───────────────────────────────────────
 
-  getCurrentUserId(): number | null {
+  getCurrentUserId(): string | null {
     const userData = localStorage.getItem('userData');
     if (!userData) return null;
     try {
@@ -45,48 +45,28 @@ export class UserService extends BaseService<User> {
 
   // ── Update profile (firstName, lastName, email, photoUrl) ─────────────────
 
-  updateProfile(id: number, data: Partial<User>): Observable<User> {
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
-    return this.http.patch<User>(
+  updateProfile(id: string, data: Partial<User>): Observable<User> {
+    return this.http.put<User>(
       `${this.resourcePath()}/${id}`,
       JSON.stringify(data),
       this.httpOptions,
     );
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // return this.http
-    //   .put<User>(`${this.resourcePath()}/${id}/profile`, JSON.stringify(data), this.httpOptions);
   }
 
   // ── Update password ───────────────────────────────────────────────────────
 
-  updatePassword(id: number, currentPassword: string, newPassword: string): Observable<User> {
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
-    // json-server doesn't validate currentPassword, so we just PATCH the password field
+  updatePassword(id: string, currentPassword: string, newPassword: string): Observable<User> {
     return this.http.patch<User>(
-      `${this.resourcePath()}/${id}`,
-      JSON.stringify({ password: newPassword }),
+      `${this.resourcePath()}/${id}/password`,
+      JSON.stringify({ currentPassword, newPassword }),
       this.httpOptions,
     );
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // return this.http
-    //   .put<User>(
-    //     `${this.resourcePath()}/${id}/password`,
-    //     JSON.stringify({ currentPassword, newPassword }),
-    //     this.httpOptions
-    //   );
   }
 
   // ── Delete account ────────────────────────────────────────────────────────
 
-  deleteAccount(id: number): Observable<any> {
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
+  deleteAccount(id: string): Observable<any> {
     return this.delete(id);
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // return this.http
-    //   .delete(`${this.resourcePath()}/${id}`, this.httpOptions);
   }
 
   // ── Sync localStorage after profile update ────────────────────────────────

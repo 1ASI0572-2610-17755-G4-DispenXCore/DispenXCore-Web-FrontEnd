@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Notification } from '../model/entities/notification.entity';
 import { MarkReadRequest } from '../model/request/mark-read.request';
+import { NotificationType } from '../model/entities/notification-type.model';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationsApiService {
@@ -14,7 +15,16 @@ export class NotificationsApiService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-
+  private parseType(value: any): NotificationType {
+    const map: Record<number, NotificationType> = {
+      0: NotificationType.ALERT,
+      1: NotificationType.SUCCESS,
+      2: NotificationType.INFO,
+    };
+    return typeof value === 'number'
+      ? (map[value] ?? NotificationType.INFO)
+      : (value as NotificationType);
+  }
   // ── Get all ──────────────────────────────────────────────────────────────────
 
   getAll(): Observable<Notification[]> {
@@ -27,28 +37,24 @@ export class NotificationsApiService {
 
   // ── Get by userId ────────────────────────────────────────────────────────────
 
-  getByUserId(userId: number): Observable<Notification[]> {
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
-    return this.http.get<Notification[]>(`${this.url}?userId=${userId}`, this.httpOptions);
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // return this.http.get<Notification[]>(`${this.url}/user/${userId}`, this.httpOptions);
+  getByUserId(userId: string): Observable<Notification[]> {
+    return this.http.get<Notification[]>(`${this.url}?userId=${userId}`, this.httpOptions).pipe(
+      map((list) =>
+        list.map((n) => ({
+          ...n,
+          type: this.parseType(n.type),
+        })),
+      ),
+    );
   }
 
   // ── Mark as read ─────────────────────────────────────────────────────────────
 
-  markAsRead(id: number): Observable<Notification> {
-    const body = new MarkReadRequest(false);
-
-    // ── JSON-SERVER (mock) ──────────────────────────────────────────────────
-    return this.http.patch<Notification>(`${this.url}/${id}`, body, this.httpOptions);
-
-    // ── REAL BACKEND ────────────────────────────────────────────────────────
-    // return this.http.patch<Notification>(`${this.url}/${id}/read`, body, this.httpOptions);
+  markAsRead(id: string): Observable<Notification> {
+    return this.http.patch<Notification>(`${this.url}/${id}/read`, {}, this.httpOptions);
   }
 
-
-  delete(id: number): Observable<void> {
+  delete(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 }

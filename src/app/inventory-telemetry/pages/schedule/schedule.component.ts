@@ -59,13 +59,17 @@ export class ScheduleComponent implements OnInit {
   private dialog = inject(MatDialog);
 
   // Hardcoded until backend session provides dispensatorId
-  private readonly DISPENSATOR_ID = 1;
+
+  get dispensatorId(): number {
+    return this.dispensator()?.id ?? 0;
+  }
 
   ngOnInit(): void {
     this.dispensatorService.getAll().subscribe({
       next: (list) => {
-        const found = list.find((d) => d.id === this.DISPENSATOR_ID);
-        if (found) this.dispensator.set(found);
+        if (list.length > 0) {
+          this.dispensator.set(list[0]); // ← toma el primero que exista
+        }
       },
       error: () => {
         this.translate
@@ -84,8 +88,11 @@ export class ScheduleComponent implements OnInit {
   }
 
   onNewSchedule(): void {
+    const id = this.dispensator()?.id;
+    if (!id) return;
+
     const ref = this.dialog.open(ScheduleFormComponent, { width: '480px' });
-    ref.componentInstance.dispensatorId = this.DISPENSATOR_ID;
+    ref.componentInstance.dispensatorId = id; // ← ya no usa DISPENSATOR_ID
     ref.componentInstance.saved.subscribe(() => {
       this.translate
         .get('schedule.notifications.created')
