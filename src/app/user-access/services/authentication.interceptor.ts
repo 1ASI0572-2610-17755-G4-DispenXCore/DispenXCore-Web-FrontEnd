@@ -1,16 +1,13 @@
-
 import { HttpInterceptorFn } from '@angular/common/http';
 
 export const authenticationInterceptor: HttpInterceptorFn = (request, next) => {
   const token = localStorage.getItem('token');
 
-  const isAuthRoute =
-    request.url.includes('/sign-in') ||
-    request.url.includes('/sign-up') ||
-    request.url.includes('/users');
+  const isPublicRoute =
+    request.url.includes('/auth/login') || request.url.includes('/auth/register');
 
   const handledRequest =
-    token && !isAuthRoute
+    token && !isPublicRoute
       ? request.clone({ headers: request.headers.set('Authorization', `Bearer ${token}`) })
       : request;
 

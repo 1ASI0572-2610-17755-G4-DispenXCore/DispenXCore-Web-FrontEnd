@@ -1,17 +1,13 @@
 export const environment = {
-  production: false,
-  apiBaseUrl: 'https://dispenxcore-web-frontend.onrender.com',
-  // Para Local:
-  //  apiBaseUrl: 'http://localhost:3000',
-  // Para Deploy:
-  //  apiBaseUrl: 'https://dispenxcore-web-frontend.onrender.com',
-  signInPath: '/users',
-  signUpPath: '/users',
+  production: true,
+  apiBaseUrl: 'https://dispenxcore-backend-production.up.railway.app/api/v1',
+  signInPath: '/auth/login',
+  signUpPath: '/auth/register',
   usersEndpointPath: '/users',
   dispensatorsPath: '/dispensators',
   schedulesPath: '/schedules',
   dispenserEventsPath: '/dispenser-events',
-  dispensatorStatusPath: '/dispensator-status',
+  dispensatorStatusPath: '/dispensators', // GET /dispensators/{id} devuelve el status
   notificationsPath: '/notifications',
   devicePath: '/device',
   firmwarePath: '/firmware',

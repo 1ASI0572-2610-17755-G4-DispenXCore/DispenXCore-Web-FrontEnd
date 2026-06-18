@@ -18,40 +18,22 @@ export class SettingsService {
   // ── Device ───────────────────────────────────────────────────────────────────
 
   getDevice(): Observable<Device> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
     return this.http.get<Device>(this.deviceUrl);
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http
-    //   .get<DeviceResponse>(this.deviceUrl)
-    //   .pipe(map(r => r.data));
   }
 
   updateDevice(request: UpdateDeviceRequest): Observable<Device> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
     return this.http.patch<Device>(this.deviceUrl, request, this.httpOptions);
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http
-    //   .patch<DeviceResponse>(this.deviceUrl, request, this.httpOptions)
-    //   .pipe(map(r => r.data));
   }
 
   // ── Firmware ─────────────────────────────────────────────────────────────────
 
   getFirmwareList(): Observable<Firmware[]> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
     return this.http.get<Firmware[]>(this.firmwareUrl);
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http
-    //   .get<FirmwareListResponse>(this.firmwareUrl)
-    //   .pipe(map(r => r.data));
   }
 
   getLatestFirmware(): Observable<Firmware | null> {
-    return this.getFirmwareList().pipe(
-      map((list) => list.find((f) => f.isLatest) ?? list[0] ?? null),
-    );
+    return this.http
+      .get<Firmware>(`${this.firmwareUrl}/latest`)
+      .pipe(map((f) => f ?? null));
   }
 }

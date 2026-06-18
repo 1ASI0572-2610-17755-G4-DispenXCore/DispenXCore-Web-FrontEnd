@@ -18,26 +18,13 @@ export class DispensatorService {
   // ── Get all ─────────────────────────────────────────────────────────────────
 
   getAll(): Observable<Dispensator[]> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
     return this.http.get<Dispensator[]>(this.baseUrl);
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http
-    //   .get<{ data: Dispensator[] }>(this.baseUrl)
-    //   .pipe(map(r => r.data));
   }
 
   // ── Get status ──────────────────────────────────────────────────────────────
 
   getStatus(id: number): Observable<DispensatorStatusResponse> {
-    // ── JSON-SERVER (mock) ────────────────────────────────────────────────
-    // json-server doesn't support nested routes (/dispensators/:id/status),
-    // so we query the flat collection and extract the first match.
-    return this.http
-      .get<DispensatorStatusResponse[]>(`${this.statusBaseUrl}?dispensatorId=${id}`)
-      .pipe(map((results) => results[0]));
-
-    // ── REAL BACKEND ──────────────────────────────────────────────────────
-    // return this.http.get<DispensatorStatusResponse>(`${this.baseUrl}/${id}/status`);
+    // El endpoint GET /dispensators/{id} ya devuelve el status directamente
+    return this.http.get<DispensatorStatusResponse>(`${this.baseUrl}/${id}`);
   }
 }

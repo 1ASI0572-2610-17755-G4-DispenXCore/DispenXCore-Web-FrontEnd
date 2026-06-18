@@ -34,16 +34,23 @@ export class ScheduleListComponent implements OnInit, OnChanges {
   private translate = inject(TranslateService);
 
   ngOnInit(): void {
-    this.loadSchedules();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['filterDay'] && !changes['filterDay'].firstChange) {
+    if (this.dispensatorId) {
       this.loadSchedules();
     }
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    // recargar cuando cambia el día O cuando llega el dispensatorId por primera vez
+    if (changes['dispensatorId'] || changes['filterDay']) {
+      if (this.dispensatorId) {
+        this.loadSchedules();
+      }
+    }
+  }
+
   loadSchedules(): void {
+    if (!this.dispensatorId) return; // guard extra
+
     this.isLoading.set(true);
     this.scheduleService.getByDispensator(this.dispensatorId).subscribe({
       next: (data) => {
