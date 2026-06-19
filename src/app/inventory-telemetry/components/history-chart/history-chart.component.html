@@ -18,8 +18,7 @@
           <stop offset="100%" stop-color="#14B8A6" stop-opacity="0.01" />
         </linearGradient>
       </defs>
-
-      <!-- Y grid lines + labels -->
+      <!-- Y axis grid lines and labels for better data readability -->
       @for (tick of yTicks(); track tick.value) {
         <line
           [attr.x1]="PAD.left"
